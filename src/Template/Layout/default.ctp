@@ -12,48 +12,73 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+  <?= $this->Html->charset() ?>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+		ISOSKABA
+		<!--
+    <?= $cakeDescription ?>: 
+		<?= $this->fetch('title') ?> 
+		-->
+  </title>
+  <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+  <!--
+	<?= $this->Html->css('base.css') ?>
+  <?= $this->Html->css('cake.css') ?>
+	-->
+	<?= $this->Html->css('bootstrap.css') ?>
+	<?= $this->Html->css('isoskaba.css') ?>
+	<script src="js/bootstrap.min.js"></script>
+  <script src="js/isoskaba.js"></script>		
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+  <?= $this->fetch('meta') ?>
+  <?= $this->fetch('css') ?>
+  <?= $this->fetch('script') ?>
 </head>
 <body>
-    <header>
-        <div class="header-title">
-            <span><?= $this->fetch('title') ?></span>
-        </div>
-        <div class="header-help">
-            <span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-            <span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
-        </div>
-    </header>
-    <div id="container">
+	<!-- <header> -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="index.php">ISOskaba</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="add_event.php">LISÄÄ</a></li>
+					<li><a href="my_status.php">OMAT</a></li> 
+					<li><a href="guild_status.php">KILTA</a></li> 
+					<li><a href="leaderboard.php">KAIKKI</a></li> 
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="LOGIN"><!--<span class="glyphicon glyphicon-user"></span>--> Sign Up</a></li>
+					<li><a href="SIGNUP"><!--<span class="glyphicon glyphicon-log-in"></span>--> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+  <!-- </header> -->
+  <div id="container">
 
-        <div id="content">
-            <?= $this->Flash->render() ?>
+		 <!-- <div id="content"> --> 
+	    <?= $this->Flash->render() ?>
 
-            <div class="row">
-                <?= $this->fetch('content') ?>
-            </div>
-        </div>
-        <footer>
-        </footer>
-    </div>
+	    <!-- <div class="row"> -->
+        <?= $this->fetch('content') ?>
+	    <!-- </div> -->
+		<!-- </div> -->
+    <footer>
+    </footer>
+  </div>
 </body>
 </html>
