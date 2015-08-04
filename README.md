@@ -1,3 +1,24 @@
+#TODO
+Users <--Jonne>
+	-Login
+	-Autentikaatio
+	-Sivujen oikeudet
+Events <--Onni>
+	-"Olin täällä"
+		-"Niin olit"/"etpäs ollut" T: ISOvastaava
+	-Tapahtuman lisääminen
+		-Adminin alle
+	-Luokka "tapahtuma", oliona tapahtuma, metodeina poisto ja lisäys
+	-Käyttäjän EventsControlleriin tapahtuma-olioiden hakeminen listaan
+		-funktio joka hakee halutut tapahtumat
+Guilds
+	-Kiltatason pisteet/tapahtumat
+		-käytetään hyväksi ylempänä olevia
+Leaderboard
+	-Toteutus
+
+
+
 # CakePHP Application Skeleton
 
 [![Build Status](https://api.travis-ci.org/cakephp/app.png)](https://travis-ci.org/cakephp/app)
