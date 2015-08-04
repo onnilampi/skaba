@@ -19,13 +19,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <head>
   <?= $this->Html->charset() ?>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-		ISOSKABA
-		<!--
-    <?= $cakeDescription ?>: 
-		<?= $this->fetch('title') ?> 
-		-->
-  </title>
+  <title>ISOSKABA</title>
   <?= $this->Html->meta('icon') ?>
 
   <!--
@@ -55,14 +49,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="add_event.php">LISÄÄ</a></li>
-					<li><a href="my_status.php">OMAT</a></li> 
-					<li><a href="guild_status.php">KILTA</a></li> 
-					<li><a href="leaderboard.php">KAIKKI</a></li> 
+					<li><a href="/Events">LISÄÄ</a></li>
+					<li><a href="/Users/me">OMAT</a></li> 
+					<li><a href="/Guilds">KILLAT</a></li> 
+					<li><a href="/Leaderboard">KAIKKI</a></li> 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="LOGIN"><!--<span class="glyphicon glyphicon-user"></span>--> Sign Up</a></li>
-					<li><a href="SIGNUP"><!--<span class="glyphicon glyphicon-log-in"></span>--> Login</a></li>
+					<li><a href="/Users/Login"><!--<span class="glyphicon glyphicon-user"></span>--> Login</a></li>
 				</ul>
 			</div>
 		</div>

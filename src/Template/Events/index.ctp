@@ -1,53 +1,60 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Event'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Guilds'), ['controller' => 'Guilds', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Guild'), ['controller' => 'Guilds', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Attendances'), ['controller' => 'Attendances', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Attendance'), ['controller' => 'Attendances', 'action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="events index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
-    <thead>
-        <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('title') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th><?= $this->Paginator->sort('modified') ?></th>
-            <th><?= $this->Paginator->sort('points') ?></th>
-            <th><?= $this->Paginator->sort('guild_id') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($events as $event): ?>
-        <tr>
-            <td><?= $this->Number->format($event->id) ?></td>
-            <td><?= h($event->title) ?></td>
-            <td><?= h($event->created) ?></td>
-            <td><?= h($event->modified) ?></td>
-            <td><?= $this->Number->format($event->points) ?></td>
-            <td>
-                <?= $event->has('guild') ? $this->Html->link($event->guild->title, ['controller' => 'Guilds', 'action' => 'view', $event->guild->id]) : '' ?>
-            </td>
-            <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $event->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $event->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $event->id], ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]) ?>
-            </td>
-        </tr>
 
-    <?php endforeach; ?>
-    </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
-</div>
+			<div class="content container-fluid">
+				<div class="header2 row">
+	    		<div class="white-space col-md-3 col-xs-1">&nbsp;</div>
+						<div class="col-md-6 col-xs-10">
+							<h2>Lisää tapahtuma</h2>
+						</div>
+					<div class="white-space col-md-3 col-xs-1">&nbsp;</div>
+				</div>
+				<?php
+					// $db = new SQLite3('isoskaba.db');
+				?>
+				<div class="row">
+					<div class="white-space col-xs-1 col-md-2 col-lg-3"></div>					
+					<div class='col-xs-10 col-md-8 col-lg-6 text-center'>
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary btn-toggle" data-toggle="button">
+								Kilta
+							</button>
+							<button type="button" class="btn btn-primary btn-toggle" data-toggle="button">
+								Yhteiset
+							</button>
+							<button type="button" class="btn btn-primary btn-toggle" data-toggle="button">
+								ISOt
+							</button>
+						</div>
+						<button class="btn btn-primary">
+							<img class="img-button" src="i/omaplus.svg" style="height:18px"></img> Uusi tapahtuma
+						</button>
+					</div>
+					<div class="white-space col-xs-1 col-md-2 col-lg-3"></div>					
+				</div>
+				<br>
+				<form name="add_event" action="TÄHÄN PHP FILE" method="post">
+					<div class="white-space col-xs-0 col-md-2 col-lg-3"></div>
+					<div class="col-xs-12 col-md-8 col-lg-6">
+						<table class="event-list" style="border-collapse:collapse;">
+							<thead>
+								<tr>
+									<td>Tapahtuma</td>
+									<td />
+								</tr>
+							</thead>
+							<tbody>
+								<script>
+									$('.collapse').on('show.bs.collapse', function () {
+										$('.collapse.in').collapse('hide');
+									});
+								</script>
+								<tr><td>asd</td><td>dfg</td></tr>
+								<tr><td>456</td><td>123</td></tr>
+								<tr><td>hjktl</td><td>jkrsjgklqu</td></tr>
+							</tbody>
+						</table>
+						<br><span>Tapahtumia yhteensä: 9001</span>
+					</div>
+					<div class="white-space col-xs-0 col-md-2 col-lg-3"></div>
+				</form>
+			</div>					
+

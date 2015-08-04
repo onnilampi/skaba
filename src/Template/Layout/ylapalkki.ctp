@@ -11,7 +11,7 @@
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav">
-							<li><a href="add_event.php">LISÄÄ</a></li>
+							<li><a href="Events">LISÄÄ</a></li>
 							<li><a href="my_status.php">OMAT</a></li> 
 							<li><a href="guild_status.php">KILTA</a></li> 
 							<li><a href="leaderboard.php">KAIKKI</a></li> 
