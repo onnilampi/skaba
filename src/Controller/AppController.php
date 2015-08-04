@@ -15,7 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
-
+use Cake\Event\Event;
 /**
  * Application Controller
  *
@@ -38,5 +38,21 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+				$this->loadComponent('Auth');
     }
+    public function beforeFilter(Event $event) {
+       if ($this->request->prefix === null) {
+            $this->Auth->allow();
+       }
+    }
+		public function isAuthorized($user)
+		{
+		 // Admin can access every action
+		 if (isset($user['role']) && $user['role'] === 'admin') {
+		 return true;
+		 }
+
+		 // Default deny
+		 return false;
+		}
 }
