@@ -38,7 +38,13 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
-				$this->loadComponent('Auth');
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Admin',
+                'action' => 'index'
+            ]
+        ]);
+
     }
     public function beforeFilter(Event $event) {
        if ($this->request->prefix === null) {
