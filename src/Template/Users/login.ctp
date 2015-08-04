@@ -1,10 +1,10 @@
 <div class="users form">
 <?= $this->Flash->render('auth') ?>
-<?= $this->Form->create() ?>
-    <fieldset>
-        <legend><?= __('Please enter your username and password') ?></legend>
-        <?= $this->Form->input('username') ?>
-        <?= $this->Form->input('password') ?>
+<?= $this->element('bootstrap_left', [
+'header2_for_layout' => __('Kirjaudu sisään')]) ?>
+					<div class='col-xs-10 col-md-8 col-lg-6 text-center'>
+					<?= $this->Form->input('username') ?>
+        	<?= $this->Form->input('password') ?>
     </fieldset>
 <?= $this->Form->button(__('Login')); ?>
 <?= $this->Form->end() ?>

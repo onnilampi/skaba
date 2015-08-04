@@ -3,13 +3,10 @@
 				<div class="header2 row">
 	    		<div class="white-space col-md-3 col-xs-1">&nbsp;</div>
 						<div class="col-md-6 col-xs-10">
-							<h2>Lisää tapahtuma</h2>
+							<h2><?php if (isset($header2_for_layout)) echo $header2_for_layout;?>ASD</h2>
 						</div>
 					<div class="white-space col-md-3 col-xs-1">&nbsp;</div>
 				</div>
-				<?php
-					// $db = new SQLite3('isoskaba.db');
-				?>
 				<div class="row">
 					<div class="white-space col-xs-1 col-md-2 col-lg-3"></div>					
 					<div class='col-xs-10 col-md-8 col-lg-6 text-center'>

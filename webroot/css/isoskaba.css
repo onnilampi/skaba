@@ -27,12 +27,12 @@ body{
   padding-bottom: 20px;  
 }
 
-.input-container label {
+.input label {
   float: left;
   vertical-align: middle;
 }
 
-.input-container input, select{
+.input input, select{
   float:right; 
   padding: 8px 12px;
   width: 50%;
@@ -40,7 +40,7 @@ body{
   
 }
 
-.input-container {
+.input {
   height:40px;
   margin-bottom: 10px;
   
