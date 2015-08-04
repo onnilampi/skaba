@@ -1,0 +1,5 @@
+bin/cake bake all Events
+bin/cake bake all Guilds
+bin/cake bake all Attendances
+bin/cake bake all Users
+bin/cake server

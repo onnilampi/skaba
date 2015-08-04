@@ -1,0 +1,65 @@
+DROP TABLE Events;
+DROP TABLE Guilds;
+DROP TABLE Attendances;
+DROP TABLE Users;
+
+CREATE TABLE Events (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+title VARCHAR(50),
+body TEXT,
+created DATETIME DEFAULT NULL,
+modified DATETIME DEFAULT NULL,
+points INTEGER DEFAULT NULL,
+guild_id INTEGER,
+FOREIGN KEY(guild_id) REFERENCES Guilds(id)
+);
+
+CREATE TABLE Guilds (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+title VARCHAR(100) NOT NULL,
+abbr VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE Attendances (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+created DATETIME DEFAULT NULL,
+verified DATETIME DEFAULT NULL,
+event_id INTEGER,
+user_id INTEGER,
+FOREIGN KEY(event_id) REFERENCES Events(id),
+FOREIGN KEY(user_id) REFERENCES Users(id)
+);
+
+CREATE TABLE Users (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+realName VARCHAR(50) NOT NULL,
+username VARCHAR(50),
+password VARCHAR(255),
+role VARCHAR(20),
+created DATETIME DEFAULT NULL,
+modified DATETIME DEFAULT NULL,
+guild_id INTEGER, 
+FOREIGN KEY(guild_id) REFERENCES Guilds(id)
+);
+
+INSERT INTO Guilds(title,abbr) VALUES('Yleinen','Kaikki');
+INSERT INTO Guilds(title,abbr) VALUES('Arkkitehtikilta','AK');
+INSERT INTO Guilds(title,abbr) VALUES('AS-kilta','AS');
+INSERT INTO Guilds(title,abbr) VALUES('Athene','Athene');
+INSERT INTO Guilds(title,abbr) VALUES('Fyysikkokilta','FK');
+INSERT INTO Guilds(title,abbr) VALUES('Inkubio','Bio');
+INSERT INTO Guilds(title,abbr) VALUES('Koneinsinöörikilta','KIK');
+INSERT INTO Guilds(title,abbr) VALUES('Maanmittarikilta','MK');
+INSERT INTO Guilds(title,abbr) VALUES('Prodeko','Prodeko');
+INSERT INTO Guilds(title,abbr) VALUES('Prosessiteekkarit','PT');
+INSERT INTO Guilds(title,abbr) VALUES('Rakennusinsinöörikilta','IK');
+INSERT INTO Guilds(title,abbr) VALUES('Sähköinsinöörikilta','SIK');
+INSERT INTO Guilds(title,abbr) VALUES('Tietokilta','TiK');
+INSERT INTO Guilds(title,abbr) VALUES('Täffä','TF');
+INSERT INTO Events(title,body,points,guild_id) VALUES('Yleinen testitapahtuma','Täällä on kaikki ISOt','10','1');
+INSERT INTO Users(realName,username,role,guild_id) VALUES('Urmas User','user1','admin','1');
+INSERT INTO Events(title,body,points,guild_id) VALUES('Aasien pämpathon','pämp','10','3');
+INSERT INTO Users(realName,username,role,guild_id) VALUES('Armas Aasi','user2','admin','3');
+.tables
+
+
