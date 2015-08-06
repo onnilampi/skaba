@@ -1,8 +1,12 @@
 #TODO
 Users <--Jonne>  
-	-Login  
+	-Login
+		- Login ohjaa nyt adminin /Admin ja käyttäjän /Events  
 	-Autentikaatio  
-	-Sivujen oikeudet  
+		- UsersController::login tarkastaa käyttäjätunnuksen, mutta muille sivuille ei oo viel tehty mitään
+	-Sivujen oikeudet 
+	-Sessiot 
+ 
 Events <--Onni>  
 	-"Olin täällä"  
 		-"Niin olit"/"etpäs ollut" T: ISOvastaava  

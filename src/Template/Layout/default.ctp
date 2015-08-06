@@ -57,7 +57,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<li><a href="/Leaderboard">KAIKKI</a></li> 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<?php if (isset($user)) {
+					<?php if (isset($this->request->Session)) {
                         echo '<li><a href="/Users/Logout">' . __('Kirjaudu ulos') . '</a><li>';
                     }
                     else {
