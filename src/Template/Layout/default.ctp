@@ -17,23 +17,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!DOCTYPE html>
 <html>
 <head>
-  <?= $this->Html->charset() ?>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISOSKABA</title>
-  <?= $this->Html->meta('icon') ?>
-
-  <!--
-	<?= $this->Html->css('base.css') ?>
-  <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->charset() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISOSKABA</title>
+    <?= $this->Html->meta('icon') ?>
+    
+    <!--
+    <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('cake.css') ?>
 	-->
 	<?= $this->Html->css('bootstrap.css') ?>
 	<?= $this->Html->css('isoskaba.css') ?>
-	<script src="js/bootstrap.min.js"></script>
-  <script src="js/isoskaba.js"></script>		
-
-  <?= $this->fetch('meta') ?>
-  <?= $this->fetch('css') ?>
-  <?= $this->fetch('script') ?>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('isoskaba.js') ?>
+    
+    <?= $this->fetch('meta') ?>
+    <?= $this->fetch('css') ?>
+    <?= $this->fetch('script') ?>
+    <?php use Cake\Network\Http\Auth; ?>
 </head>
 <body>
 	<!-- <header> -->
@@ -41,9 +43,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
 				</button>
 				<a class="navbar-brand" href="index.php">ISOskaba</a>
 			</div>
@@ -55,23 +57,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<li><a href="/Leaderboard">KAIKKI</a></li> 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/Users/Login"><!--<span class="glyphicon glyphicon-user"></span>--> Login</a></li>
+					<?php if (isset($user)) {
+                        echo '<li><a href="/Users/Logout">' . __('Kirjaudu ulos') . '</a><li>';
+                    }
+                    else {
+                       echo  '<li><a href="/Users/Login">' . __('Kirjaudu sisään') . '</a></li>';
+                    } ?>
 				</ul>
 			</div>
 		</div>
 	</nav>
-  <!-- </header> -->
-  <div id="container">
+    <!-- </header> -->
+    <div id="container-fluid">
 
-		 <!-- <div id="content"> --> 
-	    <?= $this->Flash->render() ?>
-
-	    <!-- <div class="row"> -->
-        <?= $this->fetch('content') ?>
-	    <!-- </div> -->
-		<!-- </div> -->
+		<!-- <div id="content"> --> 
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+                <?= $this->Flash->render() ?>
+            </div>
+        </div>
+            <?= $this->fetch('content') ?>
     <footer>
     </footer>
-  </div>
+    </div>
 </body>
 </html>

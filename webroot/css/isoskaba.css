@@ -46,16 +46,32 @@ body{
   
 }
 
-input[type="button"] { 
-  margin-top: 30px; 
+input[type="button"], button { 
+  margin-top: 20px; 
   padding: 10px 15px;
   border-radius: 5px;
+  border: 1px solid #000;
 }
+
+
+/* Errors */
 .inputError {
   border-color:#ff0000;
   background-color:#ff9999;
 }
-
+div.message {
+  border: 1px solid #000;
+  padding: 20px;
+  border-radius:5px;
+}
+div.error {
+  background-color:#ff9999;
+  border-color: #f00;
+}
+div.success {
+  background-color: #7fff7f;
+  border-color: #006600;
+}
 /* table for listing events */
 table.event-list {
   width: 100%;

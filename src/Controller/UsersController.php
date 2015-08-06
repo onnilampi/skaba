@@ -116,7 +116,7 @@ class UsersController extends AppController
 				        $this->Auth->setUser($user);
 				        return $this->redirect($this->Auth->redirectUrl());
 				    }
-				    $this->Flash->error(__('Invalid username or password, try again'));
+				    $this->Flash->error(__('Väärä käyttäjätunnus tai salasana, yritä uudelleen'));
 				}
 		}
 
@@ -124,4 +124,13 @@ class UsersController extends AppController
 		{
 				return $this->redirect($this->Auth->logout());
 		}
+        
+        public function direct() {
+            if ($this->Auth->user('role') == 'admin') {
+                return $this->redirect(['controller' => 'Admin', 'action' => 'index']);
+            }
+            else {
+                return $this->redirect(['controller' => 'Events', 'action' => 'index']);
+            }
+        }
 }
