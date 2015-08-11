@@ -57,12 +57,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<li><a href="/Leaderboard">KAIKKI</a></li> 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<?php if (isset($this->request->Session)) {
-                        echo '<li><a href="/Users/Logout">' . __('Kirjaudu ulos') . '</a><li>';
+					<?php if (is_null($this->request->session()->read('Auth.User.username'))) {
+                        echo '<li><a href="/Users/Login">' . __('Kirjaudu sisään') . '</a></li>';
                     }
-                    else {
-                       echo  '<li><a href="/Users/Login">' . __('Kirjaudu sisään') . '</a></li>';
-                    } ?>
+                    else { ?>
+                    <li class="dropdown fat-dropdown">
+                        <a href="#" class="dropdown-toggle" role="button" id="userMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded ="true">
+                            <?= $this->request->session()->read('Auth.User.username'); ?>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="userMenu2">
+                            <li><a href="/Users/Logout"><?= __('Kirjaudu ulos'); ?></a></li>
+                        </ul>
+                    </li>
+                    <?php }; ?>   
 				</ul>
 			</div>
 		</div>

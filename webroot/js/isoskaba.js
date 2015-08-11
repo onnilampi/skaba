@@ -4,7 +4,7 @@
 function validatePassword(passwordText) {
     /* validates a passwords syntax */
 	var result = true; 
-	if (passwordText.length < 6 || passwordText.length > 20) {
+	if (passwordText.length !== 0 && (passwordText.length < 6 || passwordText.length > 20)) {
 		result = false;
 	};
 	var allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
