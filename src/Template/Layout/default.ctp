@@ -47,14 +47,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="index.php">ISOskaba</a>
+				<a class="navbar-brand" href="index.php">ISOSKABA</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="/Events">LISÄÄ</a></li>
 					<li><a href="/Users/me">OMAT</a></li> 
-					<li><a href="/Guilds">KILLAT</a></li> 
-					<li><a href="/Leaderboard">KAIKKI</a></li> 
+					<li><a href="/Guilds/Me">KILTA</a></li> 
+					<li><a href="/Leaderboard">LEADERBOARD</a></li> 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<?php if (is_null($this->request->session()->read('Auth.User.username'))) {
