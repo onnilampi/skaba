@@ -11,7 +11,7 @@
         <li><?= $this->Html->link(__('New Attendance'), ['controller' => 'Attendances', 'action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="events view large-10 medium-9 columns">
+<div class="col-lg-8 col-lf-offset-2 col-md-10 col-offset-1 col-xs-12">
     <h2><?= h($event->title) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">

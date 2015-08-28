@@ -28,6 +28,12 @@ class AttendancesTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->belongsTo('Events', [
+            'foreignKey' => 'id'
+        ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'id'
+        ]);        
     }
 
     /**

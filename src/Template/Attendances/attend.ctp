@@ -3,13 +3,12 @@
 				<div class="header2 row">
 	    		<div class="white-space col-md-3 col-xs-1">&nbsp;</div>
 						<div class="col-md-6 col-xs-10">
-							<h2><?php if (isset($header2_for_layout)) echo $header2_for_layout;?>ASD</h2>
+							<h2><?php if (isset($header2_for_layout)) echo $header2_for_layout;?></h2>
 						</div>
 					<div class="white-space col-md-3 col-xs-1">&nbsp;</div>
 				</div>
-				<div class="row">
-					<div class="white-space col-xs-1 col-md-2 col-lg-3"></div>					
-					<div class='col-xs-10 col-md-8 col-lg-6 text-center'>
+				<div class="row">				
+					<!-- <div class='col-xs-10 col-md-8 col-lg-6 text-center'>
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary btn-toggle" data-toggle="button">
 								Kilta
@@ -24,13 +23,14 @@
 						<button class="btn btn-primary">
 							<img class="img-button" src="i/omaplus.svg" style="height:18px"></img> Uusi tapahtuma
 						</button>
-					</div>
-					<div class="white-space col-xs-1 col-md-2 col-lg-3"></div>					
+					</div> -->
+                    <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center'>
+                        <input class="search-bar" id="search-event" type="text" name="search" placeholder="<?= __('Etsi tapahtumista') ?>">
+                    </div>					
 				</div>
 				<br>
-				<form name="add_event" action="TÄHÄN PHP FILE" method="post">
-					<div class="white-space col-xs-0 col-md-2 col-lg-3"></div>
-					<div class="col-xs-12 col-md-8 col-lg-6">
+                <?= $this->Form->create() ?>
+                    <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center'>
 						<table class="event-list" style="border-collapse:collapse;">
 							<thead>
 								<tr>
@@ -44,14 +44,16 @@
 										$('.collapse.in').collapse('hide');
 									});
 								</script>
-								<tr><td>asd</td><td>dfg</td></tr>
-								<tr><td>456</td><td>123</td></tr>
-								<tr><td>hjktl</td><td>jkrsjgklqu</td></tr>
+                                <?php foreach ($events as $event) : ?>
+                                <tr>
+                                    <td><?= $event->title ?></td>
+                                    <td><button class="add-event" name="eventId" value="<?= $event->id ?>">LISÄÄ</button>
+                                </tr>
+                                <?php endforeach; ?>
 							</tbody>
 						</table>
 						<br><span>Tapahtumia yhteensä: 9001</span>
 					</div>
-					<div class="white-space col-xs-0 col-md-2 col-lg-3"></div>
 				</form>
 			</div>					
 
