@@ -23,6 +23,11 @@ class UsersController extends AppController
         ];
         $this->set('users', $this->paginate($this->Users));
         $this->set('_serialize', ['users']);
+        
+        if (!$this->Auth->user()) {
+            return $this->redirect(['action' => 'login']);
+        }
+        else { $this->direct(); }
     }
 
     /**
