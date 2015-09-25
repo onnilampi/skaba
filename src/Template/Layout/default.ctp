@@ -26,8 +26,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
 	-->
-	<?= $this->Html->css('bootstrap.css') ?>
-	<?= $this->Html->css('isoskaba.css') ?>
+    <?= $this->Html->css('bootstrap.css') ?>
+    <?= $this->Html->css('isoskaba.css') ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <?= $this->Html->script('bootstrap.min.js') ?>
     <?= $this->Html->script('isoskaba.js') ?>
@@ -38,26 +38,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?php use Cake\Network\Http\Auth; ?>
 </head>
 <body>
-	<!-- <header> -->
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="index.php">ISOSKABA</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="/Events">LISÄÄ</a></li>
-					<li><a href="/Users/me">OMAT</a></li> 
-					<li><a href="/Guilds/Me">KILTA</a></li> 
-					<li><a href="/Leaderboard">LEADERBOARD</a></li> 
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<?php if (is_null($this->request->session()->read('Auth.User.username'))) {
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <span class="navbar-brand">ISOSKABA</span>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Events">LISÄÄ</a></li>
+                    <li><a href="/Users/me">OMAT</a></li> 
+                    <li><a href="/Guilds/Me">KILTA</a></li> 
+                    <li><a href="/Leaderboard">LEADERBOARD</a></li> 
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <?php if (is_null($this->request->session()->read('Auth.User.username'))) {
                         echo '<li><a href="/Users/Login">' . __('Kirjaudu sisään') . '</a></li>';
                     }
                     else { ?>
@@ -71,14 +70,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         </ul>
                     </li>
                     <?php }; ?>   
-				</ul>
-			</div>
-		</div>
-	</nav>
-    <!-- </header> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div id="container-fluid">
         <div class="row"><?= $this->Flash->render() ?></div>
-		<div id="content">
+        <div id="content">
             <?= $this->fetch('content') ?>
         </div>
     </div>

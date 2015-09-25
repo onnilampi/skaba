@@ -49,7 +49,7 @@
                 <?php foreach ($events as $event) : ?>
                     <tr>
                         <td><?= $event->title ?></td>
-                        <td><button type="submit" class="add-event" name="event-id" value="<?= $event->id ?>">LISÄÄ</button>
+                        <td class="button-cell"><button type="submit" class="add-event" name="event-id" value="<?= $event->id ?>">+</button>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
