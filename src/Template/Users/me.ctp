@@ -20,6 +20,8 @@
 							<thead>
 								<tr>
 									<td>Tapahtuma</td>
+
+									<td>Pisteet</td>
 									<td />
 								</tr>
 							</thead>
@@ -29,12 +31,6 @@
 										$('.collapse.in').collapse('hide');
 									});
 								</script>
-                                <?php foreach ($events as $event) : ?>
-                                <tr>
-                                    <td><?= $event->title ?></td>
-                                    <td><button class="add-event" name="eventId" value="<?= $event->id ?>">LISÄÄ</button>
-                                </tr>
-                                <?php endforeach; ?>
 							</tbody>
 						</table>
 						<br><span>Tapahtumia yhteensä: 9001</span>

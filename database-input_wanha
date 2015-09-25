@@ -3,6 +3,7 @@ DROP TABLE Guilds;
 DROP TABLE Attendances;
 DROP TABLE Users;
 
+
 CREATE TABLE Events (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 title VARCHAR(50),
@@ -12,22 +13,6 @@ modified DATETIME DEFAULT NULL,
 points INTEGER DEFAULT NULL,
 guild_id INTEGER,
 FOREIGN KEY(guild_id) REFERENCES Guilds(id)
-);
-
-CREATE TABLE Guilds (
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-title VARCHAR(100) NOT NULL,
-abbr VARCHAR(10) NOT NULL
-);
-
-CREATE TABLE Attendances (
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-created DATETIME DEFAULT NULL,
-verified DATETIME DEFAULT NULL,
-event_title VARCHAR(50),
-user_realName VARCHAR(50),
-FOREIGN KEY(event_title) REFERENCES Events(title),
-FOREIGN KEY(user_realName) REFERENCES Users(realName)
 );
 
 CREATE TABLE Users (
@@ -41,6 +26,26 @@ modified DATETIME DEFAULT NULL,
 guild_id INTEGER, 
 FOREIGN KEY(guild_id) REFERENCES Guilds(id)
 );
+
+
+CREATE TABLE Guilds (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+title VARCHAR(100) NOT NULL,
+abbr VARCHAR(10) NOT NULL
+);
+
+
+
+CREATE TABLE Attendances (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+created DATETIME DEFAULT NULL,
+verified DATETIME DEFAULT NULL,
+event_id VARCHAR(50),
+user_id VARCHAR(50),
+FOREIGN KEY(event_id) REFERENCES Events(id),
+FOREIGN KEY(user_id) REFERENCES Users(id)
+);
+
 
 INSERT INTO Guilds(title,abbr) VALUES('Yleinen','Kaikki');
 INSERT INTO Guilds(title,abbr) VALUES('Arkkitehtikilta','AK');
@@ -60,6 +65,8 @@ INSERT INTO Events(title,body,points,guild_id) VALUES('Yleinen testitapahtuma','
 INSERT INTO Users(realName,username,role,guild_id) VALUES('Urmas User','user1','admin','1');
 INSERT INTO Events(title,body,points,guild_id) VALUES('Aasien pämpathon','pämp','10','3');
 INSERT INTO Users(realName,username,role,guild_id) VALUES('Armas Aasi','user2','admin','3');
+INSERT INTO Users(realName,username,role,guild_id) VALUES('Admar Admin','admini','salasana','admin','3');
+INSERT INTO Users(realName,username,role,guild_id) VALUES('Ukko User','useri','salasana','user','3');
 .tables
 
 

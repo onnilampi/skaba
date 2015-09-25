@@ -141,6 +141,8 @@ class UsersController extends AppController
         }
         
         public function me() {
+        	$user_id = $this->Auth->user('id');	
+		$query = $attendances->find('all', ['conditions' => ['Attandances.user_id >' == $user_id]]);
             
         }
 }
