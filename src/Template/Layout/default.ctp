@@ -51,7 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="/Events">LISÄÄ</a></li>
-                    <li><a href="/Users/me">OMAT</a></li> 
+                    <li><a href="/Attendances/me">OMAT</a></li> 
                     <li><a href="/Guilds/Me">KILTA</a></li> 
                     <li><a href="/Leaderboard">LEADERBOARD</a></li> 
                 </ul>
