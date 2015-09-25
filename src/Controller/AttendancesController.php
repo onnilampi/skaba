@@ -128,23 +128,17 @@ class AttendancesController extends AppController
 		'contain' => ['Events']
 	];
 	$user_id = $this->Auth->user('id');	
+        $query = $this->Attendances->find('all')->where(['user_id =' => $user_id]);
+        $data = $query->toArray();
+        $results = array();
+        foreach ($data as $event) {
+            array_push($results, $this->Attendances->Events->get($event->event_id));
+        }
+        /*
 	$connection = ConnectionManager::get('default');
-	$result = $connection->execute('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');
-	/*$results2 .= $connection->execute('SELECT title FROM Events WHERE id =  ' . $results . ''
-	
-	$query = $this->Attendances->find('all', [
-		'conditions' => ['Attendances.user_id =' => $user_id],
-		'contain' => ['Events']
-	]);
-	$query2 = $this->Attendances->Events->find('all', ['conditions' => ['id =' => $query->event_
-	$attended = $this->Attendances->find('event_id', ['conditions' => ['Attandances.user_id >' == $user_id]]);
-	$attended_events = $this->Events->find('name') ['conditions' => [ 
-	$event_entries= [];
-	foreach $attended_events as $event{
-		 $event_entries .= [$event->get('title'), $event->get('points')];
-	}	
-	*/
-	$this->set('attended_events', $result);
+	$result = $connection->query('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');
+        */
+	$this->set('results', $results);
         
 
     }

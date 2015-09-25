@@ -30,17 +30,25 @@
 										$('.collapse.in').collapse('hide');
 									});
 								</script>
-								<?php var_dump($attended_events) ?>
-								<?php foreach ($attended_events as $event) : ?>
+								<?php 
+                                                                    $points = 0;
+                                                                    foreach ($results as $event) : 
+                                                                    $points = $points + $event->points;
+                                                                    ?>
 								    <tr>
-									<td><?= $event[1] ?></td>
-									<td><?= $event[5] ?></td>
+									<td><?= $event->title ?></td>
+									<td><?= $event->points ?></td>
 								    </tr>
 								<?php endforeach; ?>	
 								
 							</tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td><?= __('Pisteitä yhteensä')?></td>
+                                                                <td><?= $points?></td>    
+                                                            </tr>
+                                                        </tfoot>
 						</table>
-						<br><span>Tapahtumia yhteensä: 9001</span>
 					</div>
 				</form>
 			</div>					
