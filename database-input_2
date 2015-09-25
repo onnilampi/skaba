@@ -24,10 +24,10 @@ CREATE TABLE Attendances (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 created DATETIME DEFAULT NULL,
 verified DATETIME DEFAULT NULL,
-event_title VARCHAR(50),
-user_realName VARCHAR(50),
-FOREIGN KEY(event_title) REFERENCES Events(title),
-FOREIGN KEY(user_realName) REFERENCES Users(realName)
+event_id VARCHAR(50),
+user_id VARCHAR(50),
+FOREIGN KEY(event_id) REFERENCES Events(id),
+FOREIGN KEY(user_id) REFERENCES Users(id)
 );
 
 CREATE TABLE Users (

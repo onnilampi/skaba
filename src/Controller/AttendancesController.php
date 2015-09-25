@@ -48,20 +48,30 @@ class AttendancesController extends AppController
      */
     public function add()
     {
-        $attendance = $this->Attendances->newEntity();
+        /* $attendance = $this->Attendances->newEntity();
+        $attendance->set([
+            'user_id' => $this->Auth->user('id'),
+            'created' => new DateTime('now')
+        ]); */
         if ($this->request->is('post')) {
-            $attendance = $this->Attendances->patchEntity($attendance, $this->request->data);
+            // $attendance = $this->Attendances->patchEntity($attendance, $this->request->data);
+            $attendance = $this->Attendances->newEntity();
+            $attendance->set([
+                'user_id' => $this->Auth->user('id'),
+                'created' => new \DateTime($now),
+                'event_id' => $this->request->data('event-id')
+            ]);
             if ($this->Attendances->save($attendance)) {
                 $this->Flash->success(__('The attendance has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'events', 'action' => 'attend']);
             } else {
                 $this->Flash->error(__('The attendance could not be saved. Please, try again.'));
             }
         }
-        $events = $this->Attendances->Events->find('list', ['limit' => 200]);
+        /* $events = $this->Attendances->Events->find('list', ['limit' => 200]);
         $users = $this->Attendances->Users->find('list', ['limit' => 200]);
         $this->set(compact('attendance', 'events', 'users'));
-        $this->set('_serialize', ['attendance']);
+        $this->set('_serialize', ['attendance']); */ 
     }
 
     /**

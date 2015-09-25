@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Model\Entity\Attendance;
 
 /**
  * Events Controller
@@ -114,13 +115,16 @@ class EventsController extends AppController
     }
     
     public function attend(){
-        $this->paginate = [
+         $this->paginate = [
             'contain' => ['Guilds']
-        ];
+        ]; 
         $this->set('events', $this->paginate($this->Events));
-        $this->set('_serialize', ['events']);
+        $this->set('_serialize', ['events']); 
+        /*
         if ($this->request->is('post')) {
-            
-        }
+            $new_attendance = new Attendance([
+                event_id =
+            ]);
+        */
     }
 }
