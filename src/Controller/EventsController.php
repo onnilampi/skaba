@@ -23,6 +23,11 @@ class EventsController extends AppController
         ];
         $this->set('events', $this->paginate($this->Events));
         $this->set('_serialize', ['events']);
+        if ($this->Auth->user('role') == 'admin') {
+            return $this->redirect(['action' => 'add']);
+        } else {
+        return $this->redirect(['action' => 'attend']);
+        }
     }
 
     /**
@@ -106,5 +111,16 @@ class EventsController extends AppController
             $this->Flash->error(__('The event could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+    
+    public function attend(){
+        $this->paginate = [
+            'contain' => ['Guilds']
+        ];
+        $this->set('events', $this->paginate($this->Events));
+        $this->set('_serialize', ['events']);
+        if ($this->request->is('post')) {
+            
+        }
     }
 }
