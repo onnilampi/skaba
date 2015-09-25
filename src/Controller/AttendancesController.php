@@ -1,7 +1,9 @@
 <?php
 namespace App\Controller;
-
+use Cake\ORM\Table;
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Attendances Controller
@@ -113,11 +115,38 @@ class AttendancesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $attendance = $this->Attendances->get($id);
         if ($this->Attendances->delete($attendance)) {
-            $this->Flash->success(__('The attendance has been deleted.'));
+            $this->Flash->success(cakephp__('The attendance has been deleted.'));
         } else {
             $this->Flash->error(__('The attendance could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
     }
-    
+
+    public function me() 
+    {
+	$this->paginate = [ 
+		'contain' => ['Events']
+	];
+	$user_id = $this->Auth->user('id');	
+	$connection = ConnectionManager::get('default');
+	$result = $connection->execute('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');
+	/*$results2 .= $connection->execute('SELECT title FROM Events WHERE id =  ' . $results . ''
+	
+	$query = $this->Attendances->find('all', [
+		'conditions' => ['Attendances.user_id =' => $user_id],
+		'contain' => ['Events']
+	]);
+	$query2 = $this->Attendances->Events->find('all', ['conditions' => ['id =' => $query->event_
+	$attended = $this->Attendances->find('event_id', ['conditions' => ['Attandances.user_id >' == $user_id]]);
+	$attended_events = $this->Events->find('name') ['conditions' => [ 
+	$event_entries= [];
+	foreach $attended_events as $event{
+		 $event_entries .= [$event->get('title'), $event->get('points')];
+	}	
+	*/
+	$this->set('attended_events', $result);
+        
+
+    }
 }
+

@@ -15,8 +15,8 @@
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('created') ?></th>
             <th><?= $this->Paginator->sort('verified') ?></th>
-            <th><?= $this->Paginator->sort('event_title') ?></th>
-            <th><?= $this->Paginator->sort('user_realName') ?></th>
+            <th><?= $this->Paginator->sort('event_id') ?></th>
+            <th><?= $this->Paginator->sort('user_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -26,8 +26,8 @@
             <td><?= $this->Number->format($attendance->id) ?></td>
             <td><?= h($attendance->created) ?></td>
             <td><?= h($attendance->verified) ?></td>
-            <td><?= h($attendance->event_title) ?></td>
-            <td><?= h($attendance->user_realName) ?></td>
+            <td><?= h($attendance->event_id) ?></td>
+            <td><?= h($attendance->user_id) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $attendance->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $attendance->id]) ?>
