@@ -119,15 +119,17 @@ class GuildsController extends AppController
 		$user_id = $this->Auth->user('id');
 		$guild = $this->Auth->user('guild_id');	
 		$query = $this->Guilds->Users->find('all')
-			->where(['guild_id =' => $guild]);
+			->where(['guild_id =' => $guild])
+			->order(['points'] => 'DESC');
 		$data = $query->toArray();
+		
 		$results = array();
 		$points = array();
 		foreach ($data as $users) {
 			array_push($results, $this->Guilds->Users->get($users->id));
-			// $attendances = 
-			
 		}
+		
+		
 			/*
 		$connection = ConnectionManager::get('default');
 		$result = $connection->query('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');

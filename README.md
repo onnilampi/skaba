@@ -1,20 +1,20 @@
 ##TODO
 Users <--Jonne>  
-	-Login
-		- Login ohjaa nyt adminin /Admin ja käyttäjän /Events  
-	-Autentikaatio  
-		- UsersController::login tarkastaa käyttäjätunnuksen, mutta muille sivuille ei oo viel tehty mitään
+	-Login -check
+	-Login ohjaa nyt adminin /Admin ja käyttäjän /Events  
+	-Autentikaatio -check
+	-UsersController::login tarkastaa käyttäjätunnuksen, mutta muille sivuille ei oo viel tehty mitään
 	-Sivujen oikeudet 
 	-Sessiot 
  
 Events <--Onni>  
-	-"Olin täällä"  
-		-"Niin olit"/"etpäs ollut" T: ISOvastaava  
-	-Tapahtuman lisääminen  
-		-Adminin alle  
-	-Luokka "tapahtuma", oliona tapahtuma, metodeina poisto ja lisäys  
+	-"Olin täällä" -check
+	-"Niin olit"/"etpäs ollut" T: ISOvastaava -check
+	-Tapahtuman lisääminen -check
+	-Adminin alle
+	-Luokka "tapahtuma", oliona tapahtuma, metodeina poisto ja lisäys -
 	-Käyttäjän EventsControlleriin tapahtuma-olioiden hakeminen listaan  
-		-funktio joka hakee halutut tapahtumat  
+	-funktio joka hakee halutut tapahtumat  
 Guilds  
 	-Kiltatason pisteet/tapahtumat  
 		-käytetään hyväksi ylempänä olevia  

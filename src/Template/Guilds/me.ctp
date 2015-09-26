@@ -27,10 +27,10 @@
 										$('.collapse.in').collapse('hide');
 									});
 								</script>
-								<?php 
+								<?php
 									$points = 0;
 									foreach ($results as $user) : 
-									;
+										
 									?>
 								    <tr>
 									<td><?= $user->realName ?></td>
