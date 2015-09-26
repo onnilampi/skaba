@@ -1,25 +1,12 @@
 ##TODO
-Users <--Jonne>  
-	-Login -check
-	-Login ohjaa nyt adminin /Admin ja käyttäjän /Events  
-	-Autentikaatio -check
-	-UsersController::login tarkastaa käyttäjätunnuksen, mutta muille sivuille ei oo viel tehty mitään
-	-Sivujen oikeudet 
-	-Sessiot 
- 
-Events <--Onni>  
-	-"Olin täällä" -check
-	-"Niin olit"/"etpäs ollut" T: ISOvastaava -check
-	-Tapahtuman lisääminen -check
-	-Adminin alle
-	-Luokka "tapahtuma", oliona tapahtuma, metodeina poisto ja lisäys -
-	-Käyttäjän EventsControlleriin tapahtuma-olioiden hakeminen listaan  
-	-funktio joka hakee halutut tapahtumat  
-Guilds  
-	-Kiltatason pisteet/tapahtumat  
-		-käytetään hyväksi ylempänä olevia  
-Leaderboard  
-	-Toteutus  
+
+- Users/Asetukset puuttuu kokonaan -> salasananvaihto, kieli?
+- Leaderboard 
+	- Pisteenlasku ja listaus
+- Ulkoasuparannukset
+- Verifiointi attendanceille
+- Yläpalkkiin uudet nimitykset napeille (esim. Tapahtumat lisää/oma, Killat oma/kaikki) sekä joku logo
+
 
 
 
