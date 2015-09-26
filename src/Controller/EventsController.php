@@ -129,10 +129,23 @@ class EventsController extends AppController
     public function attend(){
          $this->paginate = [
             'contain' => ['Guilds']
-        ]; 
+        ];
+        $user_id = $this->Auth->user('id');	
+		$guild = $this->Auth->user('guild_id');
+		$general = 1;
+        $query = $this->Events->find('all')
+			->where(['guild_id =' => $guild])
+			->orWhere(['guild_id =' => $general]);
+        $data = $query->toArray();
+        $results = array();
+        foreach ($data as $event) {
+            array_push($results, $this->Events->get($event->id));
+        }
+		$this->set('results', $results); 
+        /*
         $this->set('events', $this->paginate($this->Events));
         $this->set('_serialize', ['events']); 
-        /*
+        
         if ($this->request->is('post')) {
             $new_attendance = new Attendance([
                 event_id =

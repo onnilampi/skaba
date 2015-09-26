@@ -46,7 +46,11 @@
                         $('.collapse.in').collapse('hide');
                     });
                 </script>
-                <?php foreach ($events as $event) : ?>
+                <?php 
+				$event_count=0;
+                foreach ($results as $event) : 
+                $event_count=$event_count+1;
+                ?>
                     <tr>
                         <td><?= $event->title ?></td>
                         <td class="button-cell"><button type="submit" class="add-event" name="event-id" value="<?= $event->id ?>">+</button>
@@ -54,7 +58,7 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <br><span>Tapahtumia yhteensä: <?= $events->count() ?></span>
+            <br><span>Tapahtumia yhteensä: <?= $event_count ?> </span>
         </div>
     <?= $this->Form->end(); ?>
 </div>					
