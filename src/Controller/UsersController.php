@@ -113,37 +113,60 @@ class UsersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-		public function login()
-		{
-				if ($this->request->is('post')) {
-				    $user = $this->Auth->identify();
-				    if ($user) {
-				        $this->Auth->setUser($user);
-                        $this->Flash->success(__('Sisäänkirjautuminen onnistui'));
-				        return $this->redirect($this->Auth->redirectUrl());
-				    }
-				    $this->Flash->error(__('Väärä käyttäjätunnus tai salasana, yritä uudelleen'));
-				}
-		}
+    public function login()  {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                $this->Flash->success(__('Sisäänkirjautuminen onnistui'));
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('Väärä käyttäjätunnus tai salasana, yritä uudelleen'));
+        }
+    }
 
-		public function logout()
-		{
-				return $this->redirect($this->Auth->logout());
-		}
+    public function logout() {
+        return $this->redirect($this->Auth->logout());
+    }
         
-        public function direct() {
-            if ($this->Auth->user('role') == 'admin') {
-                return $this->redirect(['controller' => 'Admin', 'action' => 'index']);
-            }
-            else {
-                return $this->redirect(['controller' => 'Events', 'action' => 'index']);
-            }
+    public function direct() {
+        if ($this->Auth->user('role') == 'admin') {
+            return $this->redirect(['controller' => 'Admin', 'action' => 'index']);
+        }
+        else {
+            return $this->redirect(['controller' => 'Events', 'action' => 'index']);
+        }
+    }
+    
+    public function settings() {
+        
+    }
+    
+    public function isAuthorized($user) {
+        if ($this->request->action == 'login' || $this->request->action == 'logout') {
+            return true;
+        }
+        else {
+            return parent::isAuthorized($user);
+        }
+        /*switch ($this->request->action) {
+            case 'login':
+            case 'logout':
+                return true;
+            case 'settings':
+                return isset($user) ? true : false;
+            default:
+                return isset($user['role']) && $user['role'] == 'admin' ? true: false;
+        }
+        /*
+        if (in_array($this->request->action, ['login', 'logout'])) {
+            return true;
         }
         
-        public function me() {
-        	$user_id = $this->Auth->user('id');	
-		$query = $attendances->find('all', ['conditions' => ['Attandances.user_id >' == $user_id]]);
-
-            
+        else if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
         }
+        else { return false; }
+        */
+    }
 }
