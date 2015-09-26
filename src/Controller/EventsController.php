@@ -26,10 +26,8 @@ class EventsController extends AppController
         ];
         $this->set('events', $this->paginate($this->Events));
         $this->set('_serialize', ['events']);
-        if ($this->Auth->user('role') == 'admin') {
-            return $this->redirect(['action' => 'add']);
-        } else {
-        return $this->redirect(['action' => 'attend']);
+        if (!$this->Auth->user('role') == 'admin') {
+            return $this->redirect(['action' => 'attend']);
         }
     }
     
@@ -51,6 +49,7 @@ class EventsController extends AppController
      */
     public function view($id = null)
     {
+        
         $event = $this->Events->get($id, [
             'contain' => ['Guilds', 'Attendances']
         ]);
