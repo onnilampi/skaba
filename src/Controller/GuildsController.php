@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * Guilds Controller
  *
@@ -21,6 +21,15 @@ class GuildsController extends AppController
         $this->set('guilds', $this->paginate($this->Guilds));
         $this->set('_serialize', ['guilds']);
     }
+    
+    public function beforeFilter(Event $event) {
+        if ($this->request->action == 'me' || $this->request->action == 'all') {
+            $this->Auth->Allow();
+        }
+        else if (!parent::isAdmin()) {
+            $this->redirect(['action' => 'me']);
+        }
+    }    
 
     /**
      * View method
@@ -114,11 +123,11 @@ class GuildsController extends AppController
 		$data = $query->toArray();
 		$results = array();
 		$points = array();
-		$query = ClassRegistry::init('Attendances')->find('all');
+		$query = $this->Guilds->Attendances->find('all');
 		$attendance_data= $query->toArray();
 		foreach ($data as $users) {
 			array_push($results, $this->Guilds->Users->get($users->id));
-			$attendances = 
+			// $attendances = 
 			
 		}
 			/*
