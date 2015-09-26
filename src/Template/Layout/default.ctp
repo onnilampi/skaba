@@ -66,6 +66,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="userMenu2">
+                            <li><a href="/Users/Settings"><?= __('Asetukset'); ?></a></li>
                             <li><a href="/Users/Logout"><?= __('Kirjaudu ulos'); ?></a></li>
                         </ul>
                     </li>

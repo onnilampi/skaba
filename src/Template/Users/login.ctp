@@ -1,4 +1,5 @@
 <div class="users form">
+<style>.navbar-right {display: none !important; }</style>    
 <?php use App\Model\Entity\User; ?>
 <?= $this->Flash->render('auth') ?>
 <?= $this->element('header2', [
