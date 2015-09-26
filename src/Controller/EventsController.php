@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Model\Entity\Attendance;
+use Cake\Event\Event;
+
 
 /**
  * Events Controller
@@ -30,6 +32,15 @@ class EventsController extends AppController
         return $this->redirect(['action' => 'attend']);
         }
     }
+    
+    public function beforeFilter(Event $event) {
+        if ($this->request->action == 'attend') {
+            $this->Auth->Allow();
+        }
+        else if (!parent::isAdmin()) {
+            $this->redirect(['action' => 'attend']);
+        }
+    }    
 
     /**
      * View method

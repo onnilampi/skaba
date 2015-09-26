@@ -48,9 +48,7 @@ class AppController extends Controller
 
     }
     public function beforeFilter(Event $event) {
-       /*if ($this->request->prefix == 'admin') {
-            $this->Auth->allow();
-       }*/
+        
     }
     
     /*public function isAuthorized($user) {
@@ -60,10 +58,11 @@ class AppController extends Controller
         }
     }*/
     
-    public function authenticate($user, $direction ) {
+    public function isAdmin() {
+        $user = $this->Auth->user();
         if (isset($user['role']) && $user['role'] == 'admin') {
             return true;
         }
-        return $this->redirect->$direction;
+        return false;
     }
 }
