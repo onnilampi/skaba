@@ -53,7 +53,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <li><a href="/Events">LISÄÄ</a></li>
                     <li><a href="/Attendances/me">OMAT</a></li> 
                     <li><a href="/Guilds/Me">KILTA</a></li> 
-                    <li><a href="/Leaderboard">LEADERBOARD</a></li> 
+                    <li><a href="/Guilds/All">LEADERBOARD</a></li> 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (is_null($this->request->session()->read('Auth.User.username'))) {

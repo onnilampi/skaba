@@ -102,4 +102,29 @@ class GuildsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+    
+    public function me() {
+        
+    }
+    
+    public function all() {
+        
+    }
+    
+    public function isAuthorized($user){
+        if ($this->request->action === 'all') {
+            return true;
+        }
+        if (isset($user) && $this->request->action === 'me') {
+            return true;
+        }
+
+        //if (in_array($this->request->action, ['edit', 'delete', 'add'])) {
+            if(isset($user['role']) && $user['role'] == 'admin') {
+                return true;
+            }
+        //}
+
+        return parent::isAuthorized($user);
+    }
 }
