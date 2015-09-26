@@ -30,7 +30,6 @@
 								<?php
 									$points = 0;
 									foreach ($results as $user) : 
-										
 									?>
 								    <tr>
 									<td><?= $user->realName ?></td>
@@ -43,4 +42,4 @@
 					</div>
 				</form>
 			</div>					
-
+	
