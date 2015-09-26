@@ -60,7 +60,10 @@ class AppController extends Controller
         }
     }*/
     
-    public function authentication($user) {
-        
+    public function authenticate($user, $direction ) {
+        if (isset($user['role']) && $user['role'] == 'admin') {
+            return true;
+        }
+        return $this->redirect->$direction;
     }
 }
