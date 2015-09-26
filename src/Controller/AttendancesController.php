@@ -185,11 +185,10 @@ class AttendancesController extends AppController
 	$this->paginate = [ 
 		'contain' => ['Events']
 	];
-	$user_id = $this->Auth->user('id');
 	$query = $this->Attendances->find('all')
-		->where(['user_id =' => $user_id]);
+		->where(['user_id =' => $id]);
 	$data = $query->toArray();
-	$points=array();
+	$points=0;
 	foreach ($data as $point) {
 		$points=$points+$this->Attendances->Events->get($event->event_id);
 	}
