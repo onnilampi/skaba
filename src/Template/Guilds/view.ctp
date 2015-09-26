@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="col-lg-2 col-md-3 col-xs-12">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Guild'), ['action' => 'edit', $guild->id]) ?> </li>
@@ -11,7 +11,7 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="guilds view large-10 medium-9 columns">
+<div class="form-content col-lg-8 col-md-8 col-xs-12">
     <h2><?= h($guild->title) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">
@@ -27,10 +27,11 @@
     </div>
 </div>
 <div class="related row">
-    <div class="column large-12">
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-10 col-xs-off-set-1">
     <h4 class="subheader"><?= __('Related Events') ?></h4>
     <?php if (!empty($guild->events)): ?>
-    <table cellpadding="0" cellspacing="0">
+    <table class="event-list">
+      <thead>
         <tr>
             <th><?= __('Id') ?></th>
             <th><?= __('Title') ?></th>
@@ -41,6 +42,8 @@
             <th><?= __('Guild Id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
+      </thead>
+      <tbody>
         <?php foreach ($guild->events as $events): ?>
         <tr>
             <td><?= h($events->id) ?></td>
@@ -67,10 +70,11 @@
     </div>
 </div>
 <div class="related row">
-    <div class="column large-12">
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-10 col-xs-off-set-1">
     <h4 class="subheader"><?= __('Related Users') ?></h4>
     <?php if (!empty($guild->users)): ?>
-    <table cellpadding="0" cellspacing="0">
+    <table class="event-list">
+      <thead>
         <tr>
             <th><?= __('Id') ?></th>
             <th><?= __('RealName') ?></th>
@@ -82,6 +86,8 @@
             <th><?= __('Guild Id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
+      </thead>
+      <tbody>
         <?php foreach ($guild->users as $users): ?>
         <tr>
             <td><?= h($users->id) ?></td>

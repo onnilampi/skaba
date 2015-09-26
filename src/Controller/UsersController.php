@@ -143,10 +143,7 @@ class UsersController extends AppController
     }
         
     public function direct() {
-        if ($this->Auth->user('role') == 'admin') {
-            return $this->redirect(['controller' => 'Admin', 'action' => 'index']);
-        }
-        else {
+        if (!$this->Auth->user('role') == 'admin') {
             return $this->redirect(['controller' => 'Events', 'action' => 'index']);
         }
     }
