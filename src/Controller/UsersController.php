@@ -38,7 +38,10 @@ class UsersController extends AppController
         if (!$this->Auth->user()) {
             return $this->redirect(['action' => 'login']);
         }
-        else { $this->direct(); }
+        //else { $this->direct(); }
+        else if (!$this->Auth->user('role') == 'admin') {
+            return $this->redirect(['controller' => 'Events', 'action' => 'index']);
+        }
     }
 
     /**
@@ -130,7 +133,8 @@ class UsersController extends AppController
             if ($user) {
                 $this->Auth->setUser($user);
                 $this->Flash->success(__('Sisäänkirjautuminen onnistui'));
-                return $this->redirect($this->Auth->redirectUrl());
+                //return $this->redirect($this->Auth->redirectUrl());
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Väärä käyttäjätunnus tai salasana, yritä uudelleen'));
         }

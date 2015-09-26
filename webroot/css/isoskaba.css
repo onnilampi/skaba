@@ -165,23 +165,22 @@ table.event-list {
   border: 1px solid #204d74;
 }
 table.event-list thead tr {
-  background-color: #4691FF;
+  background-color: #2885AB;
   border-bottom: 1px solid #319ca6;
   color: #fff;
 
 }
 table.event-list thead td, table.event-list thead th {
-  padding: 7px 10px;
+  padding: 15px 15px;
   font-weight: bold;
 }
 table.event-list tr {
-  background-color: #E0F0FF;
+  background-color: #fff 
 }
-table.event-list tr:nth-child(even) {
-  background-color: #CCE6FF;
-}
+table.event-list tr.event-name {border-top: 1px solid #2F4F4F; }
+
 table.event-list td {
-  padding: 3px 10px;
+  padding: 15px 15px;
 }
 table.event-list img {
   width: 20px;
@@ -189,11 +188,14 @@ table.event-list img {
 table.event-list thead a {
   color: #fff;  
 }
-button.add-event {
-  background-color: #00ff00;
-  border-radius: 20px;
-  border-size: 0px;
+table.event-list tr:nth-child(4n-2) {
+    background-color: #eaeaea;
 }
+table.event-list tr:nth-child(4n-1) {
+    background-color: #eaeaea;
+}
+// .hiddenRow {padding: 0px 15px !important;}
+
 td.button-cell {
     text-align: right;
 }
