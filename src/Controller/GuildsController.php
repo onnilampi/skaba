@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 /**
  * Guilds Controller
  *
@@ -122,17 +123,42 @@ class GuildsController extends AppController
 			->where(['guild_id =' => $guild])
 			->order(['realName' => 'ASC']);
 		$data = $query->toArray();
+		$attendances = TableRegistry::get('Attendances');
+		$events = TableRegistry::get('Events');
+		$events_query= $events->find('all');
 		$results = array();
 		$points = array();
 		foreach ($data as $users) {
+			$points_user=0;
 			array_push($results, $this->Guilds->Users->get($users->id));
-			//array_push($points, AttendancesController::count_points($users->id));
+			$attendances_query= $attendances->find()
+				->where(['user_id =' => $users->id]);
+			$size = $attendances->find()
+				->where(['user_id =' => $users->id])
+				->count();
+			if($size != 0){
+				$att_data=$attendances_query->toArray();
+				foreach($att_data as $att){
+					$ev_data = $events_query->toArray();
+					foreach($ev_data as $ev){
+						if($ev->id == $att->event_id){
+							$points_user=$points_user+ $ev->points;
+						}
+					}
+					//echo $events_query->select(['points'])->where(['id =' => $att->event_id]);
+					//echo $points_user;
+					//break;
+				}
+			}
+				array_push($points, $points_user);
+			
 		}
 		
 			/*
 		$connection = ConnectionManager::get('default');
 		$result = $connection->query('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');
 			*/
+		
 		$this->set('results', $results);
 		$this->set('points', $points);
     }

@@ -2,6 +2,7 @@
 namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Attendances Controller
@@ -181,16 +182,17 @@ class AttendancesController extends AppController
 
     }
     
-    public function count_points($id=null){
+    public function count_points($id){
 	$this->paginate = [ 
 		'contain' => ['Events']
 	];
-	$query = $this->Attendances->find('all')
-		->where(['user_id =' => $id]);
+	$attendances = TableRegistry::get('Attendances');
+	$query = $attendances->find()
+		->select(['event_id', 'user_id']);
 	$data = $query->toArray();
 	$points=0;
 	foreach ($data as $point) {
-		$points=$points+$this->Attendances->Events->get($event->event_id);
+		//$points=$points+$this->Attendances->Events->get($event->event_id);
 	}
 	return $points;
 	

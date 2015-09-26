@@ -28,13 +28,14 @@
 									});
 								</script>
 								<?php
-									$points = 0;
+									$i=0;
 									foreach ($results as $user) : 
 									?>
 								    <tr>
 									<td><?= $user->realName ?></td>
-									<td><?= $points ?></td>
+									<td><?= $points[$i] ?></td>
 								    </tr>
+								    <?php $i=$i+1;?>
 								<?php endforeach; ?>
 								
 							</tbody>
