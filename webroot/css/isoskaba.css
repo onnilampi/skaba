@@ -188,10 +188,10 @@ table.event-list img {
 table.event-list thead a {
   color: #fff;  
 }
-table.event-list tr:nth-child(4n-2) {
+table.event-attend tr:nth-child(4n-2) {
     background-color: #eaeaea;
 }
-table.event-list tr:nth-child(4n-1) {
+table.event-attend tr:nth-child(4n-1) {
     background-color: #eaeaea;
 }
 // .hiddenRow {padding: 0px 15px !important;}

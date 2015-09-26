@@ -17,7 +17,7 @@
         'url' => ['controller' => 'Attendances', 'action' => 'Add']
     ]); ?>
         <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center'>
-            <table class="event-list" style="border-collapse:collapse;">
+            <table class="event-list event-attend" style="border-collapse:collapse;">
                 <thead>
                     <tr>
                         <td>Tapahtuma</td>
