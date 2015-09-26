@@ -115,12 +115,42 @@ class AttendancesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $attendance = $this->Attendances->get($id);
         if ($this->Attendances->delete($attendance)) {
-            $this->Flash->success(cakephp__('The attendance has been deleted.'));
+            $this->Flash->success(__('The attendance has been deleted.'));
         } else {
             $this->Flash->error(__('The attendance could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
     }
+    
+    public function verify($id=null){
+		//if($id!=null){
+		$this->request->allowMethod('post');
+		$attendance = $this->Attendances->get($id);
+		
+		$attendance->set('verified', new \DateTime($now));
+		if ($this->Attendances->save($attendance)) {
+                $this->Flash->success(__('The attendance has been verified.'));
+                //return $this->redirect(['controller' => 'attendances', 'action' => 'verify']);
+        } else {
+                $this->Flash->error(__('The attendance could not be verified. Please, try again.'));
+        }
+        return $this->redirect(['action' => 'index']);
+	}
+	
+	public function unverify($id=null){
+		//if($id!=null){
+		$this->request->allowMethod('post');
+		$attendance = $this->Attendances->get($id);
+		
+		$attendance->set('verified', null);
+		if ($this->Attendances->save($attendance)) {
+                $this->Flash->success(__('The attendance has been unverified.'));
+                //return $this->redirect(['controller' => 'attendances', 'action' => 'verify']);
+        } else {
+                $this->Flash->error(__('The attendance could not be unverified. Please, try again.'));
+        }
+        return $this->redirect(['action' => 'index']);
+	}
 
     public function me() 
     {

@@ -19,9 +19,9 @@
 						<table class="event-list" style="border-collapse:collapse;">
 							<thead>
 								<tr>
-									<td>Tapahtuma</td>
-
-									<td>Pisteet</td>
+									<td><?= __('Tapahtuma') ?></td>
+									<td><?= __('Pisteet') ?></td>
+									<!--<td><?= __('Vahvistettu') ?></td>-->
 								</tr>
 							</thead>
 							<tbody>
@@ -31,23 +31,24 @@
 									});
 								</script>
 								<?php 
-                                                                    $points = 0;
-                                                                    foreach ($results as $event) : 
-                                                                    $points = $points + $event->points;
-                                                                    ?>
+									$points = 0;
+									foreach ($results as $event) : 
+									$points = $points + $event->points;
+									?>
 								    <tr>
 									<td><?= $event->title ?></td>
 									<td><?= $event->points ?></td>
+									<!--<td><?= $event->verified ?></td>-->
 								    </tr>
 								<?php endforeach; ?>	
 								
 							</tbody>
-                                                        <tfoot>
-                                                            <tr>
-                                                                <td><?= __('Pisteitä yhteensä')?></td>
-                                                                <td><?= $points?></td>    
-                                                            </tr>
-                                                        </tfoot>
+								<tfoot>
+									<tr>
+										<td><b><?= __('Pisteitä yhteensä')?></b></td>
+										<td><b><?= $points?></b></td>    
+									</tr>
+								</tfoot>
 						</table>
 					</div>
 				</form>

@@ -29,8 +29,13 @@
             <td><?= h($attendance->event_id) ?></td>
             <td><?= h($attendance->user_id) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $attendance->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $attendance->id]) ?>
+                <!--<?= $this->Html->link(__('View'), ['action' => 'view', $attendance->id]) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $attendance->id]) ?>-->
+                <?php if($attendance->verified==''){
+                echo $this->Form->postLink(__('Verify'), ['action' => 'verify', $attendance->id]);
+                }else{
+                echo $this->Form->postLink(__('Unverify'), ['action' => 'unverify', $attendance->id]);
+                } ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $attendance->id], ['confirm' => __('Are you sure you want to delete # {0}?', $attendance->id)]) ?>
             </td>
         </tr>
