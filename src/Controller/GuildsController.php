@@ -132,7 +132,8 @@ class GuildsController extends AppController
 			$points_user=0;
 			array_push($results, $this->Guilds->Users->get($users->id));
 			$attendances_query= $attendances->find()
-				->where(['user_id =' => $users->id]);
+				->where(['user_id =' => $users->id])
+				->where(['verified !=' => null]);
 			$size = $attendances->find()
 				->where(['user_id =' => $users->id])
 				->count();
