@@ -39,7 +39,7 @@ class UsersController extends AppController
             return $this->redirect(['action' => 'login']);
         }
         //else { $this->direct(); }
-        else if (!$this->Auth->user('role') == 'admin') {
+        else if ($this->Auth->user('role') != 'admin') {
             return $this->redirect(['controller' => 'Events', 'action' => 'index']);
         }
     }
