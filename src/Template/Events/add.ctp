@@ -1,6 +1,6 @@
-<div class="actions columns large-2 medium-3">
+<div class="col-lg-2 col-md-3 col-xs-12">
     <h3><?= __('Actions') ?></h3>
-    <ul class="col-md-1">
+    <ul>
         <li><?= $this->Html->link(__('List Events'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Guilds'), ['controller' => 'Guilds', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Guild'), ['controller' => 'Guilds', 'action' => 'add']) ?></li>
@@ -8,9 +8,9 @@
         <li><?= $this->Html->link(__('New Attendance'), ['controller' => 'Attendances', 'action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="col-lg-8 col-lf-offset-2 col-md-10 col-offset-1 col-xs-12">
+<div class="col-lg-8 col-md-8 col-xs-12">
     <?= $this->Form->create($event) ?>
-    <fieldset>
+    <fieldset class="form-content">
         <legend><?= __('Add Event') ?></legend>
         <?php
             echo $this->Form->input('title');
