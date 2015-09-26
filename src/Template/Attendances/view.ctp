@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="col-lg-2 col-md-3 col-xs-12">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Attendance'), ['action' => 'edit', $attendance->id]) ?> </li>
@@ -11,7 +11,7 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="attendances view large-10 medium-9 columns">
+<div class="form-content col-lg-8 col-md-8 col-xs-12">
     <h2><?= h($attendance->id) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">

@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="col-lg-2 col-md-3 col-xs-12">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('List Attendances'), ['action' => 'index']) ?></li>
@@ -8,8 +8,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="attendances form large-10 medium-9 columns">
-    <?= $this->Form->create($attendance) ?>
+<div class="form-content col-lg-8 col-md-8 col-xs-12">
+    <?= $this->Form->create() ?>
     <fieldset>
         <legend><?= __('Add Attendance') ?></legend>
         <?php

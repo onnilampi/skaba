@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="col-lg-1 col-md-2 col-sm-3 col-xs-10">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('New Attendance'), ['action' => 'add']) ?></li>
@@ -8,8 +8,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="attendances index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+<div class="form-content col-lg-10 col-md-8 col-sm-7 col-xs-12">
+    <table class="event-list">
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>

@@ -45,8 +45,9 @@ body{
   min-height: 40px;
   overflow: hidden;
 }
-.input:after { clear: both; }
+.input:after {clear: both; }
 
+.datetime select {width: auto; }
 /* input[type="button"], button { 
   margin-top: 20px; 
   padding: 10px 15px;
@@ -169,9 +170,9 @@ table.event-list thead tr {
   color: #fff;
 
 }
-table.event-list thead td {
+table.event-list thead td, table.event-list thead th {
   padding: 7px 10px;
-	font-weight: bold;
+  font-weight: bold;
 }
 table.event-list tr {
   background-color: #E0F0FF;
@@ -184,6 +185,9 @@ table.event-list td {
 }
 table.event-list img {
   width: 20px;
+}
+table.event-list thead a {
+  color: #fff;  
 }
 button.add-event {
   background-color: #00ff00;

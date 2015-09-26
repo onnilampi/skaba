@@ -1,10 +1,10 @@
-<div class="actions columns large-2 medium-3">
+<div class="col-lg-2 col-md-3 col-xs-12">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
                 __('Delete'),
                 ['action' => 'delete', $event->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]
+                ['confirm' => __('Haluatko varmasti poistaa tapahtuman {0}?', $event->title)]
             )
         ?></li>
         <li><?= $this->Html->link(__('List Events'), ['action' => 'index']) ?></li>
@@ -14,7 +14,7 @@
         <li><?= $this->Html->link(__('New Attendance'), ['controller' => 'Attendances', 'action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="events form large-10 medium-9 columns">
+<div class="form-content col-lg-8 col-md-8 col-xs-12">
     <?= $this->Form->create($event) ?>
     <fieldset>
         <legend><?= __('Edit Event') ?></legend>
