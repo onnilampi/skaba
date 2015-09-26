@@ -39,7 +39,7 @@ class AppController extends Controller
         parent::initialize();
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'authorize' => ['Controller'],
+            //'authorize' => ['Controller'],
             'loginRedirect' => [
                 'controller' => 'Users',
                 'action' => 'direct'

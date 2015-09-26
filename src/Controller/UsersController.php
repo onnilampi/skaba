@@ -142,7 +142,10 @@ class UsersController extends AppController
         
     }
     
-    public function isAuthorized($user) {
+    
+    
+    /*public function isAuthorized($user) {
+        
         if ($this->request->action == 'login' || $this->request->action == 'logout') {
             return true;
         }
@@ -167,6 +170,6 @@ class UsersController extends AppController
             return true;
         }
         else { return false; }
-        */
-    }
+        
+    }*/
 }
