@@ -114,6 +114,8 @@ class GuildsController extends AppController
 		$data = $query->toArray();
 		$results = array();
 		$points = array();
+		$query = ClassRegistry::init('Attendances')->find('all');
+		$attendance_data= $query->toArray();
 		foreach ($data as $users) {
 			array_push($results, $this->Guilds->Users->get($users->id));
 			$attendances = 
