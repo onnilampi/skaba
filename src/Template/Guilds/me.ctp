@@ -30,7 +30,7 @@
 								<?php 
 									$points = 0;
 									foreach ($results as $user) : 
-									//$points = $points + $event->points;
+									;
 									?>
 								    <tr>
 									<td><?= $user->realName ?></td>
