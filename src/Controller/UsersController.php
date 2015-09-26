@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -16,6 +17,16 @@ class UsersController extends AppController
      *
      * @return void
      */
+    
+    public function beforeFilter(Event $event) {
+        if ($this->request->action == 'login' || $this->request->action == 'logout'|| $this->request->action == 'index') {
+            $this->Auth->Allow();
+        }
+        else if (!parent::isAdmin()) {
+            $this->redirect(['action' => 'index']);
+        }
+    }
+    
     public function index()
     {
         $this->paginate = [
@@ -126,7 +137,9 @@ class UsersController extends AppController
     }
 
     public function logout() {
-        return $this->redirect($this->Auth->logout());
+        // return $this->redirect($this->Auth->logout());
+        $this->Auth->logout();
+        $this->redirect(['action' => 'login']);
     }
         
     public function direct() {

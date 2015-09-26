@@ -1,9 +1,7 @@
 <?php
 namespace App\Controller;
-use Cake\ORM\Table;
 use App\Controller\AppController;
-use Cake\ORM\TableRegistry;
-use Cake\Datasource\ConnectionManager;
+use Cake\Event\Event;
 
 /**
  * Attendances Controller
@@ -18,6 +16,16 @@ class AttendancesController extends AppController
      *
      * @return void
      */
+    
+    public function beforeFilter(Event $event) {
+        if ($this->request->action == 'me') {
+            $this->Auth->Allow();
+        }
+        else if (!parent::isAdmin()) {
+            $this->redirect(['action' => 'me']);
+        }
+    }    
+    
     public function index()
     {
         $this->paginate = [
