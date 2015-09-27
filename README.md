@@ -4,7 +4,6 @@
 - Leaderboard 
 	- Pisteenlasku ja listaus
 - Ulkoasuparannukset
-- Verifiointi attendanceille
 - Yläpalkkiin uudet nimitykset napeille (esim. Tapahtumat lisää/oma, Killat oma/kaikki) sekä joku logo
 
 
