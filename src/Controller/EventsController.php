@@ -132,9 +132,18 @@ class EventsController extends AppController
         $user_id = $this->Auth->user('id');	
 		$guild = $this->Auth->user('guild_id');
 		$general = 1;
-        $query = $this->Events->find('all')
-			->where(['guild_id =' => $guild])
-			->orWhere(['guild_id =' => $general]);
+		$tf = 14;
+		if($this->Auth->user('tf')==1)
+		{
+			$query = $this->Events->find('all')
+				->where(['guild_id =' => $guild])
+				->orWhere(['guild_id =' => $general])
+				->orWhere(['guild_id =' => $tf]);
+		}else{
+			$query = $this->Events->find('all')
+				->where(['guild_id =' => $guild])
+				->orWhere(['guild_id =' => $general]);
+		}
         $data = $query->toArray();
         $results = array();
         foreach ($data as $event) {

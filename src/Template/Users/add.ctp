@@ -16,8 +16,9 @@
             echo $this->Form->input('realName');
             echo $this->Form->input('username');
             echo $this->Form->input('password');
-            echo $this->Form->input('role');
+            echo $this->Form->input('role', ['value' => 'admin']);
             echo $this->Form->input('guild_id', ['options' => $guilds, 'empty' => true]);
+            echo $this->Form->input('tf');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
