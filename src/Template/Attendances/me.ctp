@@ -7,12 +7,12 @@
 						</div>
 					<div class="white-space col-md-3 col-xs-1">&nbsp;</div>
 				</div>
-				<div class="row">				
+				<!--<div class="row">				
 				
                     <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center'>
                         <input class="search-bar" id="search-event" type="text" name="search" placeholder="<?= __('Etsi tapahtumista') ?>">
                     </div>					
-				</div>
+				</div> -->
 				<br>
                 <?= $this->Form->create() ?>
                     <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center'>
