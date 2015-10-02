@@ -41,9 +41,16 @@ class AttendancesController extends AppController
 		$allowed_events=array();
 		$data=$events_query->toArray();
 		foreach($data as $allowed_event){
-			if($allowed_event->event_id == )
+			if($allowed_event->guild_id == $guild_id || $allowed_event->guild_id == $general){
+				array_push($allowed_events, $allowed_event);
+			}
 		}
-		
+		/*$allowed_attendances=$this->Attendances->find('all')
+			->where(['event_id IN' => $allowed_events]);
+		foreach($allowed_attendances as $penis){
+			echo "penis";
+		}
+		echo "penistest";*/
         /*$guilds_attendances = $this->Attendances->find()->matching('Events', function ($q) {
 			$guild_id=$this->Auth->user('guild_id');
 			$general = 1;
@@ -51,13 +58,12 @@ class AttendancesController extends AppController
 					->orWhere(['Events.id' => $general]);
 			}
 		);*/
-		$guilds_attendances = $this->Attendances->find('all')
-			->where()
 		//var_dump($guilds_attendances);
-        $this->set('attendances', $this->paginate($guilds_attendances));
+        $this->set('attendances', $this->paginate($this->Attendances));
         $this->set('_serialize', ['attendances']);
         $this->set('users', $users);
         $this->set('events', $events);
+        $this->set('allowed_events', $allowed_events);
     }
 
     /**

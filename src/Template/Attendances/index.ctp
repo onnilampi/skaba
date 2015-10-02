@@ -21,8 +21,10 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($attendances as $attendance): ?>
-        <tr>
+    <?php foreach ($attendances as $attendance):
+			foreach ($allowed_events as $allowed_event):
+			if($attendance->event_id == $allowed_event->id){
+    ?>
 			<td><?= $this->Number->format($attendance->id) ?></td>
             <td><?= h($attendance->created) ?></td>
             <td><?= h($attendance->verified) ?></td>
@@ -44,7 +46,9 @@
             </td>
         </tr>
 
-    <?php endforeach; ?>
+    <?php }
+			endforeach;
+			endforeach; ?>
     </tbody>
     </table>
     <div class="paginator">
