@@ -22,8 +22,16 @@
     </thead>
     <tbody>
     <?php foreach ($attendances as $attendance):
-			foreach ($allowed_events as $allowed_event):
-			if($attendance->event_id == $allowed_event->id){
+			$i=0;
+			foreach ($allowed_users as $allowed_user):
+			//$i=$i+=1;
+			//echo $i;
+			/*echo " Allowed user id:";
+			echo $allowed_user->id;
+			echo " Attendance_user id:";
+			echo $attendance->user_id;*/
+			if($attendance->user_id == $allowed_user->id){
+				
     ?>
 			<td><?= $this->Number->format($attendance->id) ?></td>
             <td><?= h($attendance->created) ?></td>

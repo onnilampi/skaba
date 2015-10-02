@@ -37,12 +37,21 @@ class AttendancesController extends AppController
         $events = TableRegistry::get('Events');
 		$events_query= $events->find('all');
 		$users = TableRegistry::get('Users');
-		$users_query= $events->find('all');
-		$allowed_events=array();
-		$data=$events_query->toArray();
-		foreach($data as $allowed_event){
-			if($allowed_event->guild_id == $guild_id || $allowed_event->guild_id == $general){
-				array_push($allowed_events, $allowed_event);
+		$users_query= $users->find('all');
+		$allowed_users=array();
+		$data=$users_query->toArray();
+		foreach($data as $allowed_user){
+			/*echo $allowed_user->guild_id;
+			echo $guild_id;
+			echo "a";*/
+			if($allowed_user->guild_id == $guild_id){
+				//var_dump($allowed_user);
+				array_push($allowed_users, $allowed_user);
+				/*echo "u";
+				echo $allowed_user->id;
+				echo "\n";
+				echo $allowed_user->guild_id;*/
+				//echo "penis";
 			}
 		}
 		/*$allowed_attendances=$this->Attendances->find('all')
@@ -63,7 +72,7 @@ class AttendancesController extends AppController
         $this->set('_serialize', ['attendances']);
         $this->set('users', $users);
         $this->set('events', $events);
-        $this->set('allowed_events', $allowed_events);
+        $this->set('allowed_users', $allowed_users);
     }
 
     /**
