@@ -23,11 +23,15 @@
     <tbody>
     <?php foreach ($attendances as $attendance): ?>
         <tr>
-            <td><?= $this->Number->format($attendance->id) ?></td>
+			<td><?= $this->Number->format($attendance->id) ?></td>
             <td><?= h($attendance->created) ?></td>
             <td><?= h($attendance->verified) ?></td>
-            <td><?= h($attendance->event_id) ?></td>
-            <td><?= h($attendance->user_id) ?></td>
+            <td><?php $event_name=$events->get($attendance->event_id); 
+					echo $event_name->title;
+				?></td>
+            <td><?php $user_name=$users->get($attendance->user_id); 
+					echo $user_name->realName;
+				?></td>
             <td class="actions">
                 <!--<?= $this->Html->link(__('View'), ['action' => 'view', $attendance->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $attendance->id]) ?>-->

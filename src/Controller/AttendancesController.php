@@ -32,8 +32,32 @@ class AttendancesController extends AppController
         $this->paginate = [
             'contain' => ['Events', 'Users']
         ];
-        $this->set('attendances', $this->paginate($this->Attendances));
+        $guild_id=$this->Auth->user('guild_id');
+        $general = 1;
+        $events = TableRegistry::get('Events');
+		$events_query= $events->find('all');
+		$users = TableRegistry::get('Users');
+		$users_query= $events->find('all');
+		$allowed_events=array();
+		$data=$events_query->toArray();
+		foreach($data as $allowed_event){
+			if($allowed_event->event_id == )
+		}
+		
+        /*$guilds_attendances = $this->Attendances->find()->matching('Events', function ($q) {
+			$guild_id=$this->Auth->user('guild_id');
+			$general = 1;
+			return $q->where(['Events.id' => $guild_id])
+					->orWhere(['Events.id' => $general]);
+			}
+		);*/
+		$guilds_attendances = $this->Attendances->find('all')
+			->where()
+		//var_dump($guilds_attendances);
+        $this->set('attendances', $this->paginate($guilds_attendances));
         $this->set('_serialize', ['attendances']);
+        $this->set('users', $users);
+        $this->set('events', $events);
     }
 
     /**
