@@ -41,33 +41,10 @@ class AttendancesController extends AppController
 		$allowed_users=array();
 		$data=$users_query->toArray();
 		foreach($data as $allowed_user){
-			/*echo $allowed_user->guild_id;
-			echo $guild_id;
-			echo "a";*/
 			if($allowed_user->guild_id == $guild_id){
-				//var_dump($allowed_user);
 				array_push($allowed_users, $allowed_user);
-				/*echo "u";
-				echo $allowed_user->id;
-				echo "\n";
-				echo $allowed_user->guild_id;*/
-				//echo "penis";
 			}
 		}
-		/*$allowed_attendances=$this->Attendances->find('all')
-			->where(['event_id IN' => $allowed_events]);
-		foreach($allowed_attendances as $penis){
-			echo "penis";
-		}
-		echo "penistest";*/
-        /*$guilds_attendances = $this->Attendances->find()->matching('Events', function ($q) {
-			$guild_id=$this->Auth->user('guild_id');
-			$general = 1;
-			return $q->where(['Events.id' => $guild_id])
-					->orWhere(['Events.id' => $general]);
-			}
-		);*/
-		//var_dump($guilds_attendances);
         $this->set('attendances', $this->paginate($this->Attendances));
         $this->set('_serialize', ['attendances']);
         $this->set('users', $users);
@@ -98,13 +75,7 @@ class AttendancesController extends AppController
      */
     public function add()
     {
-        /* $attendance = $this->Attendances->newEntity();
-        $attendance->set([
-            'user_id' => $this->Auth->user('id'),
-            'created' => new DateTime('now')
-        ]); */
         if ($this->request->is('post')) {
-            // $attendance = $this->Attendances->patchEntity($attendance, $this->request->data);
             $attendance = $this->Attendances->newEntity();
             $attendance->set([
                 'user_id' => $this->Auth->user('id'),
@@ -118,10 +89,6 @@ class AttendancesController extends AppController
                 $this->Flash->error(__('The attendance could not be saved. Please, try again.'));
             }
         }
-        /* $events = $this->Attendances->Events->find('list', ['limit' => 200]);
-        $users = $this->Attendances->Users->find('list', ['limit' => 200]);
-        $this->set(compact('attendance', 'events', 'users'));
-        $this->set('_serialize', ['attendance']); */ 
     }
 
     /**
