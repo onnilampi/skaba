@@ -5,7 +5,10 @@
 	- Pisteenlasku ja listaus
 - Ulkoasuparannukset
 - Yläpalkkiin uudet nimitykset napeille (esim. Tapahtumat lisää/oma, Killat oma/kaikki) sekä joku logo
-
+- Pisteiden lasku oikein
+- Userin lisääminen
+	- User-roolin poistaminen userin luonnista
+	- TF-täppä userin luontiin
 
 
 
