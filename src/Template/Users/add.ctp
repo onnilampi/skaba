@@ -18,13 +18,12 @@
             echo $this->Form->input('password');
             echo $this->Form->input('role', ['value' => 'admin']);
             echo $this->Form->input('guild_id', ['options' => $guilds, 'empty' => true]);
-            echo $this->Form->radio('TF',
-				[
-					['value' => '0', 'text' => 'Ei Täffläinen'],
-					['value' => '1', 'text' => 'Täffäläinen'],
-				]
-			);
         ?>
+        <div class="input">
+            <label for="TF">Täffäläinen</label>
+            <?php echo $this->Form->checkbox('TF', ['label' => "Täffäläinen"]);?>
+        </div>
+        
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
