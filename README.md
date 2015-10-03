@@ -9,7 +9,7 @@
 - Userin lisääminen
 	- User-roolin poistaminen userin luonnista
 - TF-ISOille Guilds/me-sivulle kaksi taulukkoa, oman killan ja Täffän.
-
+- Attendancen lisäämiseen kommenttikenttä.
 
 
 # CakePHP Application Skeleton
