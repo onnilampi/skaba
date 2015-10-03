@@ -133,7 +133,7 @@ class EventsController extends AppController
 		$guild = $this->Auth->user('guild_id');
 		$general = 1;
 		$tf = 14;
-		if($this->Auth->user('tf')==1)
+		if($this->Auth->user('TF')==1)
 		{
 			$query = $this->Events->find('all')
 				->where(['guild_id =' => $guild])
