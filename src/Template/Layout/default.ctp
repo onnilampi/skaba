@@ -75,6 +75,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </nav>
+    <?php if($this->request->session()->read('Auth.User.role') == 'admin') {
+        echo $this->element('adminbar');
+    } ?>
     <div id="container-fluid">
         <div class="row"><?= $this->Flash->render() ?></div>
         <div id="content">
