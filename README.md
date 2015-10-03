@@ -1,14 +1,14 @@
 ##TODO
 
-- Users/Asetukset puuttuu kokonaan -> salasananvaihto, kieli?
-- Leaderboard 
-	- Pisteenlasku ja listaus
+- Lokalisaatio
+- Kiltojen välinen leaderboard
+	- Tälle pisteenlaskut ja muut härpäkkeet 
 - Ulkoasuparannukset
 - Yläpalkkiin uudet nimitykset napeille (esim. Tapahtumat lisää/oma, Killat oma/kaikki) sekä joku logo
 - Pisteiden lasku oikein
 - Userin lisääminen
 	- User-roolin poistaminen userin luonnista
-	- TF-täppä userin luontiin
+- TF-ISOille Guilds/me-sivulle kaksi taulukkoa, oman killan ja Täffän.
 
 
 
