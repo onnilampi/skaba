@@ -18,7 +18,7 @@
 							<thead>
 								<tr>
 									<td><?= __('ISO') ?></td>
-									<td><?= __('Pisteet') ?></td>
+									<td><?= __('Raakapisteet') ?></td>
 								</tr>
 							</thead>
 							<tbody>
@@ -28,15 +28,25 @@
 									});
 								</script>
 								<?php
-									$i=0;
-									foreach ($results as $user) : 
-									?>
-								    <tr>
-									<td><?= $user->realName ?></td>
-									<td><?= $points[$i] ?></td>
+									$i=0; 
+									$users_array=array();
+									$points_array=array();
+									foreach ($results as $user) :
+									array_push($users_array, $user->realName);
+									array_push($points_array, $points[$i]);
+									//array_push($sortable_array, $user_array);
+									$i=$i+1;?>
+								<?php endforeach;
+								array_multisort($points_array, SORT_DESC, SORT_NUMERIC,
+												$users_array, SORT_DESC, SORT_STRING);
+								$amount=count($users_array);
+								for ($cives=0; $cives < $amount; $cives++){ ?>
+									<tr>
+									<td><?= $users_array[$cives] ?></td>
+									<td><?= $points_array[$cives] ?></td>
 								    </tr>
-								    <?php $i=$i+1;?>
-								<?php endforeach; ?>
+								<?php } ?>
+								
 								
 							</tbody>
 						</table>

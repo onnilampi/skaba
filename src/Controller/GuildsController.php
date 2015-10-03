@@ -129,7 +129,8 @@ class GuildsController extends AppController
 		$results = array();
 		$points = array();
 		foreach ($data as $users) {
-			$points_user=0;
+			$points_user_guild=0;
+			$points_user_general=0;
 			array_push($results, $this->Guilds->Users->get($users->id));
 			$attendances_query= $attendances->find()
 				->where(['user_id =' => $users->id])
@@ -143,7 +144,7 @@ class GuildsController extends AppController
 					$ev_data = $events_query->toArray();
 					foreach($ev_data as $ev){
 						if($ev->id == $att->event_id){
-							$points_user=$points_user+ $ev->points;
+							$points_user_guild=$points_user_guild+ $ev->points;
 						}
 					}
 					//echo $events_query->select(['points'])->where(['id =' => $att->event_id]);
@@ -151,7 +152,8 @@ class GuildsController extends AppController
 					//break;
 				}
 			}
-				array_push($points, $points_user);
+				
+				array_push($points, $points_user_guild);
 			
 		}
 		

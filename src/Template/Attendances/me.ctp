@@ -20,8 +20,7 @@
 							<thead>
 								<tr>
 									<td><?= __('Tapahtuma') ?></td>
-									<td><?= __('Pisteet') ?></td>
-									<!--<td><?= __('Vahvistettu') ?></td>-->
+									<td><?= __('Raakapisteet') ?></td>
 								</tr>
 							</thead>
 							<tbody>
@@ -38,14 +37,13 @@
 								    <tr>
 									<td><?= $event->title ?></td>
 									<td><?= $event->points ?></td>
-									<!--<td><?= $event->verified ?></td>-->
 								    </tr>
 								<?php endforeach; ?>	
 								
 							</tbody>
 								<tfoot>
 									<tr>
-										<td><b><?= __('Pisteitä yhteensä')?></b></td>
+										<td><b><?= __('Raakapisteitä yhteensä')?></b></td>
 										<td><b><?= $points?></b></td>    
 									</tr>
 								</tfoot>

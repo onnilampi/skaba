@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Controller\AppController;
+use Cake\I18n\Time;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 
@@ -173,7 +174,9 @@ class AttendancesController extends AppController
 		'contain' => ['Events']
 	];
 	$user_id = $this->Auth->user('id');	
-        $query = $this->Attendances->find('all')->where(['user_id =' => $user_id]);
+        $query = $this->Attendances->find('all')
+			->where(['user_id =' => $user_id])
+			->where(['verified IS NOT' => 'NULL']);
         $data = $query->toArray();
         $results = array();
         foreach ($data as $event) {
