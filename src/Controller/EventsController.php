@@ -24,7 +24,22 @@ class EventsController extends AppController
         $this->paginate = [
             'contain' => ['Guilds']
         ];
-        $this->set('events', $this->paginate($this->Events));
+        $guild_id=$this->Auth->user('guild_id');
+        $general = 1;
+        $tf = 14;
+        if($this->Auth->user('TF') == 1){
+			$query = $this->Events->find('all')
+			->where(['guild_id' => $tf])
+			->orWhere(['guild_id' => $guild_id])
+			->orWhere(['guild_id' => $general]);
+		}else if($this->Auth->user('guild_id') == $general){
+			$query = $this->Events->find('all');
+		}else{
+			$query = $this->Events->find('all')
+			->where(['guild_id' => $guild_id])
+			->orWhere(['guild_id' => $general]);
+		}
+        $this->set('events', $this->paginate($query));
         $this->set('_serialize', ['events']);
         if (!$this->Auth->user('role') == 'admin') {
             return $this->redirect(['action' => 'attend']);
