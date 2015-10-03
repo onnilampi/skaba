@@ -24,6 +24,12 @@
             echo $this->Form->input('password');
             echo $this->Form->input('role');
             echo $this->Form->input('guild_id', ['options' => $guilds, 'empty' => true]);
+            echo $this->Form->radio('TF',
+				[
+					['value' => '0', 'text' => 'Ei Täffläinen'],
+					['value' => '1', 'text' => 'Täffäläinen'],
+				]
+			);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

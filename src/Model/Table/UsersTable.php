@@ -58,6 +58,9 @@ class UsersTable extends Table
 
         $validator
             ->allowEmpty('role');
+            
+        $validator
+            ->notEmpty('TF', 'One must choose.');
 
         return $validator;
     }

@@ -39,9 +39,17 @@ class UsersController extends AppController
 		$general=1;
 		$allowed_users=array();
 		$data=$users_query->toArray();
-		foreach($data as $allowed_user){
-			if($allowed_user->guild_id == $guild_id || $this->Auth->user('guild_id') == $general){
-				array_push($allowed_users, $allowed_user);
+		if($this->Auth->user('TF') ==1){
+			foreach($data as $allowed_user){
+				if($allowed_user->TF == 1){
+					array_push($allowed_users, $allowed_user);
+				}
+			}	
+		}else{
+			foreach($data as $allowed_user){
+				if($allowed_user->guild_id == $guild_id || $this->Auth->user('guild_id') == $general){
+					array_push($allowed_users, $allowed_user);
+				}
 			}
 		}
         $this->set('users', $this->paginate($this->Users));
@@ -90,7 +98,7 @@ class UsersController extends AppController
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
-        $guilds = $this->Users->Guilds->find('list', ['limit' => 13]);
+        $guilds = $this->Users->Guilds->find('list', ['limit' => 15]);
         $this->set(compact('user', 'guilds'));
         $this->set('_serialize', ['user']);
     }

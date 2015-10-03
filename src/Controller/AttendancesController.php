@@ -41,9 +41,17 @@ class AttendancesController extends AppController
 		$users_query= $users->find('all');
 		$allowed_users=array();
 		$data=$users_query->toArray();
-		foreach($data as $allowed_user){
-			if($allowed_user->guild_id == $guild_id){
-				array_push($allowed_users, $allowed_user);
+		if($this->Auth->user('TF')){
+			foreach($data as $allowed_user){
+				if($allowed_user->TF == 1){
+					array_push($allowed_users, $allowed_user);
+				}
+			}
+		}else{
+			foreach($data as $allowed_user){
+				if($allowed_user->guild_id == $guild_id || $this->Auth->user('guild_id') == $general){
+					array_push($allowed_users, $allowed_user);
+				}
 			}
 		}
         $this->set('attendances', $this->paginate($this->Attendances));
