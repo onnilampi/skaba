@@ -16,14 +16,15 @@
             echo $this->Form->input('realName');
             echo $this->Form->input('username');
             echo $this->Form->input('password');
-            echo $this->Form->input('role', ['value' => 'admin']);
+            echo $this->Form->input('role', ['value' => '', 'text' => 'For normal users, leave this empty!']);
             echo $this->Form->input('guild_id', ['options' => $guilds, 'empty' => true]);
-            echo $this->Form->radio('TF',
+            /*echo $this->Form->radio('TF',
 				[
 					['value' => '0', 'text' => 'Ei Täffläinen'],
 					['value' => '1', 'text' => 'Täffäläinen'],
 				]
-			);
+			);*/
+			echo $this->Form->checkbox('TF', ['text' => 'Täffläinen']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
