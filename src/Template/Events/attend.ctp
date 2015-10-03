@@ -36,11 +36,11 @@
                     $event_count=$event_count+1;
                 ?>
                     <tr data-toggle="collapse" data-target="#event<?= $event->id ?>" class="accordion-toggle event-name">
-                        <td colspan="2"><?= $event->title ?></td>
+                        <td><?= $event->title ?></td>
+                        <td class="button-cell"><button type="submit" class="btn btn-success" name="event-id" value="<?= $event->id ?>"><?= __('Lisää tapahtumiini') ?></button>
                     </tr>
                     <tr class="accordion-body collapse" id="event<?= $event->id ?>">
-                        <td class="hiddenRow"><?= $event->body ?></td>
-                        <td class="hiddenRow button-cell"><button type="submit" class="btn btn-success" name="event-id" value="<?= $event->id ?>"><?= __('Lisää tapahtumiini') ?></button>
+                        <td colspan="2" class="hiddenRow"><?= $event->body ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

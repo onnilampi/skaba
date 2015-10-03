@@ -162,13 +162,12 @@ div.success {
 table.event-list {
   width: 100%;
   text-align: left;  
-  border: 1px solid #204d74;
+  border: 1px solid #4691FF;
 }
 table.event-list thead tr {
   background-color: #2885AB;
-  border-bottom: 1px solid #319ca6;
+  border-bottom: 1px solid #2885AB;
   color: #fff;
-
 }
 table.event-list thead td, table.event-list thead th {
   padding: 15px 15px;
@@ -189,10 +188,10 @@ table.event-list thead a {
   color: #fff;  
 }
 table.event-attend tr:nth-child(4n-2) {
-    background-color: #eaeaea;
+    background-color: rgb(209, 234, 255);
 }
 table.event-attend tr:nth-child(4n-1) {
-    background-color: #eaeaea;
+    background-color: rgb(209, 234, 255);
 }
 // .hiddenRow {padding: 0px 15px !important;}
 
