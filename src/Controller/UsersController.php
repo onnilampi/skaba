@@ -39,20 +39,24 @@ class UsersController extends AppController
 		$general=1;
 		$allowed_users=array();
 		$data=$users_query->toArray();
-		if($this->Auth->user('TF') ==1){
-			foreach($data as $allowed_user){
+		if($this->Auth->user('TF') == 1){
+			$query = $this->Users->find('all')->where(['TF' => 1]);
+			/*foreach($data as $allowed_user){
 				if($allowed_user->TF == 1){
 					array_push($allowed_users, $allowed_user);
 				}
-			}	
-		}else{
-			foreach($data as $allowed_user){
+			}*/	
+		}else if($this->Auth->user('guild_id') == $general){
+			$query = $this->Users->find('all');
+			/*foreach($data as $allowed_user){
 				if($allowed_user->guild_id == $guild_id || $this->Auth->user('guild_id') == $general){
 					array_push($allowed_users, $allowed_user);
 				}
-			}
+			}*/
+		}else{
+			$query = $this->Users->find('all')->where(['guild_id' => $guild_id]);	
 		}
-        $this->set('users', $this->paginate($this->Users));
+        $this->set('users', $this->paginate($query));
         $this->set('_serialize', ['users']);
         $this->set('allowed_users', $allowed_users);
         

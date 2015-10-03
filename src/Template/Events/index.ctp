@@ -33,7 +33,6 @@
                 <?= $event->has('guild') ? $this->Html->link($event->guild->title, ['controller' => 'Guilds', 'action' => 'view', $event->guild->id]) : '' ?>
             </td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $event->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $event->id]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $event->id], ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]) ?>
             </td>
