@@ -42,22 +42,23 @@ class AttendancesController extends AppController
 		$allowed_users=array();
 		$data=$users_query->toArray();
 		if($this->Auth->user('TF') == 1){
-			$query = $this->Attendances->find('all')->where(['Users.TF' => 1]);
-			/*foreach($data as $allowed_user){
+			foreach($data as $allowed_user){
 				if($allowed_user->TF == 1){
-					array_push($allowed_users, $allowed_user);
+					array_push($allowed_users, $allowed_user->id);
 				}
-			}*/
+			}
+			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users]);
 		}else if($this->Auth->user('guild_id') == $general){
 			$query = $this->Attendances->find('all');
 		
 		}else{
-			$query = $this->Attendances->find('all')->where(['Users.guild_id' => $guild_id]);
-			/*foreach($data as $allowed_user){
-				if($allowed_user->guild_id == $guild_id || $this->Auth->user('guild_id') == $general){
-					array_push($allowed_users, $allowed_user);
+			$query = $this->Attendances->find('all')->where(['Users.guild_id =' => $guild_id]);
+			foreach($data as $allowed_user){
+				if($allowed_user->guild_id == $guild_id){
+					array_push($allowed_users, $allowed_user->id);
 				}
-			}*/
+			}
+			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users]);
 		}
         $this->set('attendances', $this->paginate($query));
         $this->set('_serialize', ['attendances']);
