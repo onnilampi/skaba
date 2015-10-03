@@ -24,12 +24,6 @@
     <?php foreach ($attendances as $attendance):
 			$i=0;
 			foreach ($allowed_users as $allowed_user):
-			//$i=$i+=1;
-			//echo $i;
-			/*echo " Allowed user id:";
-			echo $allowed_user->id;
-			echo " Attendance_user id:";
-			echo $attendance->user_id;*/
 			if($attendance->user_id == $allowed_user->id){
 				
     ?>

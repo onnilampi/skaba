@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 /**
  * Users Controller
@@ -32,8 +33,20 @@ class UsersController extends AppController
         $this->paginate = [
             'contain' => ['Guilds']
         ];
+        $guild_id=$this->Auth->user('guild_id');
+        $users = TableRegistry::get('Users');
+		$users_query= $users->find('all');
+		$general=1;
+		$allowed_users=array();
+		$data=$users_query->toArray();
+		foreach($data as $allowed_user){
+			if($allowed_user->guild_id == $guild_id || $this->Auth->user('guild_id') == $general){
+				array_push($allowed_users, $allowed_user);
+			}
+		}
         $this->set('users', $this->paginate($this->Users));
         $this->set('_serialize', ['users']);
+        $this->set('allowed_users', $allowed_users);
         
         if (!$this->Auth->user()) {
             return $this->redirect(['action' => 'login']);

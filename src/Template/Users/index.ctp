@@ -22,7 +22,10 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($users as $user): ?>
+    <?php foreach ($users as $user):
+		foreach($allowed_users as $allowed_user):
+			if($user->id == $allowed_user->id){
+    ?>
         <tr>
             <td><?= $this->Number->format($user->id) ?></td>
             <td><?= h($user->realName) ?></td>
@@ -37,7 +40,9 @@
             </td>
         </tr>
 
-    <?php endforeach; ?>
+    <?php }
+		endforeach;
+		endforeach; ?>
     </tbody>
     </table>
     <div class="paginator">
