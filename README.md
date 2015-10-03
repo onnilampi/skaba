@@ -10,7 +10,7 @@
 	- User-roolin poistaminen userin luonnista
 - TF-ISOille Guilds/me-sivulle kaksi taulukkoa, oman killan ja Täffän.
 - Attendancen lisäämiseen kommenttikenttä.
-
+- Käyttäjän poistaessa tulee poistaa samalla tähän käyttäjään liittyvät osallistumiset
 
 # CakePHP Application Skeleton
 
