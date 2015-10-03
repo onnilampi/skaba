@@ -19,11 +19,11 @@ class UsersController extends AppController
      */
     
     public function beforeFilter(Event $event) {
-        if ($this->request->action == 'login' || $this->request->action == 'logout'|| $this->request->action == 'index') {
+        if ($this->request->action == 'login' || $this->request->action == 'logout'|| $this->request->action == 'index' || $this->request->action == 'settings') {
             $this->Auth->Allow();
         }
-        else if (!parent::isAdmin()) {
-            $this->redirect(['action' => 'index']);
+        if (parent::isAdmin()) {
+            $this->Auth->Allow();
         }
     }
     
@@ -153,7 +153,18 @@ class UsersController extends AppController
     }
     
     public function settings() {
-        
+        $user = $this->Users->get($this->Auth->user('id'));
+        if ($this->request->is('post')) {
+            $pw = $this->request->data('new-password');
+            if ($this->Auth->identify() && $pw == $this->request->data('new-password2') && strlen($pw) > 5 && strlen($pw) < 21) {
+                $user->set('password', $pw);            //_setPassword($this->request->data('new-password'));  //('password', $this->request->data('new-password'));
+                $this->Users->save($user);
+                $this->Flash->success(__('Salasana vaihdettu'));
+            }
+            else {
+                $this->Flash->error(__('Salasanan vaihto ei onnistunut. Yritä uudestaan'));            
+            }
+        }
     }
     
     
