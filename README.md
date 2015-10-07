@@ -1,6 +1,9 @@
 ##TODO
 
 - Lokalisaatio
+	- Käännökset puuttuu
+	- Kielivalinta pitää tallentaa käyttäjän taakse
+	- .po-filut pitää extractaa uudestaan
 - Kiltojen välinen leaderboard
 	- Tälle pisteenlaskut ja muut härpäkkeet 
 - Ulkoasuparannukset

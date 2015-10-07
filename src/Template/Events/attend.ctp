@@ -20,7 +20,7 @@
             <table class="event-list event-attend" style="border-collapse:collapse;">
                 <thead>
                     <tr>
-                        <td>Tapahtuma</td>
+                        <td><?= __('Tapahtuma') ?></td>
                         <td />
                     </tr>
                 </thead>
@@ -45,7 +45,7 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <br><span>Tapahtumia yhteensä: <?= $event_count ?> </span>
+            <br><span><?= __('Tapahtumia yhteensä') ?>: <?= $event_count ?> </span>
         </div>
     <?= $this->Form->end(); ?>
 </div>					
