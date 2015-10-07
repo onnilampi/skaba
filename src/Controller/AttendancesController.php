@@ -98,10 +98,10 @@ class AttendancesController extends AppController
                 'event_id' => $this->request->data('event-id')
             ]);
             if ($this->Attendances->save($attendance)) {
-                $this->Flash->success(__('The attendance has been saved.'));
+                $this->Flash->success(__('Tapahtumaan osallistuminen tallennettu.'));
                 return $this->redirect(['controller' => 'events', 'action' => 'attend']);
             } else {
-                $this->Flash->error(__('The attendance could not be saved. Please, try again.'));
+                $this->Flash->error(__('Tapahtumaan osallistumista ei pystytty tallentamaan. Yritä uudelleen.'));
             }
         }
     }
@@ -121,10 +121,10 @@ class AttendancesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $attendance = $this->Attendances->patchEntity($attendance, $this->request->data);
             if ($this->Attendances->save($attendance)) {
-                $this->Flash->success(__('The attendance has been saved.'));
+                $this->Flash->success(__('Tapahtumaan osallistuminen tallennettu.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The attendance could not be saved. Please, try again.'));
+                $this->Flash->error(__('Tapahtumaan osallistumista ei pystytty tallentamaan. Yritä uudelleen.'));
             }
         }
         $events = $this->Attendances->Events->find('list', ['limit' => 200]);
@@ -145,9 +145,9 @@ class AttendancesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $attendance = $this->Attendances->get($id);
         if ($this->Attendances->delete($attendance)) {
-            $this->Flash->success(__('The attendance has been deleted.'));
+            $this->Flash->success(__('Tapahtumaan osallistuminen poistettu.'));
         } else {
-            $this->Flash->error(__('The attendance could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Tapahtumaan osallistumista ei pystytty tallentamaan. Yritä uudelleen.'));
         }
         return $this->redirect(['action' => 'index']);
     }

@@ -191,6 +191,23 @@ class UsersController extends AppController
             }
         }
     }
+    public function locale($lang) {
+        $this->request->session()->write('Config.language', $lang);
+        /*switch ($lang) {
+            case 'fi':
+                $this->request->session()->write('Config.language', 'du');
+                break;
+            case 'en':
+                I18n::locale('en_US');
+                break;
+            case 'se':
+                I18n::locale('sv_SV');
+                break;
+            default:
+                $this->Flash->error(__('Kieliasetusta ei pystytty vaihtamaan.'));
+        }*/
+        return $this->redirect($this->referer());
+    }
     
     
     
