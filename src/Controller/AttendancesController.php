@@ -40,6 +40,7 @@ class AttendancesController extends AppController
 		$users = TableRegistry::get('Users');
 		$users_query= $users->find('all');
 		$allowed_users=array();
+		$left=0;
 		$data=$users_query->toArray();
 		if($this->Auth->user('TF') == 1){
 			foreach($data as $allowed_user){
@@ -48,6 +49,8 @@ class AttendancesController extends AppController
 				}
 			}
 			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->order(['verified' => 'ASC']);
+			$v = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->where(['verified IS NOT' => NULL])->order(['verified' => 'ASC'])->count();
+			$left = ($query->count() - $v);
 		}else if($this->Auth->user('guild_id') == $general){
 			$query = $this->Attendances->find('all');
 		
@@ -59,12 +62,15 @@ class AttendancesController extends AppController
 				}
 			}
 			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->order(['verified' => 'ASC']);
+			$v = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->where(['verified IS NOT' => NULL])->order(['verified' => 'ASC'])->count();
+			$left = ($query->count() - $v);
 		}
         $this->set('attendances', $this->paginate($query));
         $this->set('_serialize', ['attendances']);
         $this->set('users', $users);
         $this->set('events', $events);
         $this->set('allowed_users', $allowed_users);
+        $this->set('left', $left);
     }
 
     /**
