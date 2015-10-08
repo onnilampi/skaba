@@ -19,7 +19,43 @@
 						<table class="event-list" style="border-collapse:collapse;">
 							<thead>
 								<tr>
-									<td><?= __('Tapahtuma') ?></td>
+									<td><?= __('Vahvistamatta') ?></td>
+									<td><?= __('Raakapisteet') ?></td>
+								</tr>
+							</thead>
+							<tbody>
+								<script>
+									$('.collapse').on('show.bs.collapse', function () {
+										$('.collapse.in').collapse('hide');
+									});
+								</script>
+								<?php 
+									$points = 0;
+									foreach ($results_unverified as $event) : 
+									$points = $points + $event->points;
+									?>
+								    <tr>
+									<td><?= $event->title ?></td>
+									<td><?= $event->points ?></td>
+								    </tr>
+								<?php endforeach; ?>	
+								
+							</tbody>
+								<tfoot>
+									<tr>
+										<td><b><?= __('Raakapisteitä yhteensä')?></b></td>
+										<td><b><?= $points?></b></td>    
+									</tr>
+								</tfoot>
+						</table>
+					</div>
+					
+				<br>
+                    <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center'>
+						<table class="event-list" style="border-collapse:collapse;">
+							<thead>
+								<tr>
+									<td><?= __('Vahvistettu') ?></td>
 									<td><?= __('Raakapisteet') ?></td>
 								</tr>
 							</thead>

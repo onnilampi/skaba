@@ -188,20 +188,27 @@ class AttendancesController extends AppController
 		'contain' => ['Events']
 	];
 	$user_id = $this->Auth->user('id');	
-        $query = $this->Attendances->find('all')
-			->where(['user_id =' => $user_id])
-			->where(['verified IS NOT' => 'NULL']);
-        $data = $query->toArray();
-        $results = array();
+	$query = $this->Attendances->find('all')
+		->where(['user_id =' => $user_id])
+		->where(['verified IS NOT' => 'NULL']);
+	$data = $query->toArray();
+	$results = array();
+	$ver = array();
         foreach ($data as $event) {
             array_push($results, $this->Attendances->Events->get($event->event_id));
+            $penis=$this->Attendances->get($event->id);
+            array_push($ver, $penis->id);
         }
-        /*
-	$connection = ConnectionManager::get('default');
-	$result = $connection->query('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');
-        */
+	$query = $this->Attendances->find('all')
+		->where(['user_id =' => $user_id])
+		->where(['id NOT IN' => $ver]);
+	$data = $query->toArray();
+	$results_unverified = array();
+        foreach ($data as $event) {
+            array_push($results_unverified, $this->Attendances->Events->get($event->event_id));
+        }
 	$this->set('results', $results);
-        
+	$this->set('results_unverified', $results_unverified);
 
     }
     
