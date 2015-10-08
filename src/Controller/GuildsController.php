@@ -121,10 +121,12 @@ class GuildsController extends AppController
 		$guild = $this->Auth->user('guild_id');	
 		$query = $this->Guilds->Users->find('all')
 			->where(['guild_id =' => $guild])
-			->order(['realName' => 'ASC']);
+			->order(['realName' => 'DESC']);
 		$data = $query->toArray();
 		$attendances = TableRegistry::get('Attendances');
 		$events = TableRegistry::get('Events');
+		
+		//Al points
 		$events_query= $events->find('all');
 		$results = array();
 		$points = array();
@@ -132,12 +134,8 @@ class GuildsController extends AppController
 			$points_user_guild=0;
 			$points_user_general=0;
 			array_push($results, $this->Guilds->Users->get($users->id));
-			$attendances_query= $attendances->find()
-				->where(['user_id =' => $users->id])
-				->where(['verified IS NOT' => 'NULL']);
-			$size = $attendances->find()
-				->where(['user_id =' => $users->id])
-				->count();
+			$attendances_query= $attendances->find()->where(['user_id =' => $users->id])->where(['verified IS NOT' => 'NULL']);
+			$size = $attendances->find()->where(['user_id =' => $users->id])->count();
 			if($size != 0){
 				$att_data=$attendances_query->toArray();
 				foreach($att_data as $att){
@@ -147,23 +145,41 @@ class GuildsController extends AppController
 							$points_user_guild=$points_user_guild+ $ev->points;
 						}
 					}
-					//echo $events_query->select(['points'])->where(['id =' => $att->event_id]);
-					//echo $points_user;
-					//break;
 				}
-			}
-				
-				array_push($points, $points_user_guild);
-			
+			}array_push($points, $points_user_guild);	
 		}
 		
-			/*
-		$connection = ConnectionManager::get('default');
-		$result = $connection->query('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');
-			*/
+		//Guild's points
+		$events_query= $events->find('all')->where(['guild_id' => $guild]);
+		$results_g = array();
+		$points_g = array();
+		$guils_event_ids = array();
+		foreach($events_query as $event)
+		foreach ($data as $users) {
+			$points_user_guild_g=0;
+			array_push($results_g, $this->Guilds->Users->get($users->id));
+			$attendances_query= $attendances->find()->where(['user_id =' => $users->id])->where(['verified IS NOT' => 'NULL']);
+			$size = $attendances->find()->where(['user_id =' => $users->id])->count();
+			if($size != 0){
+				$att_data=$attendances_query->toArray();
+				foreach($att_data as $att){
+					$ev_data = $events_query->toArray();
+					foreach($ev_data as $ev){
+						if($ev->id == $att->event_id){
+							$points_user_guild_g=$points_user_guild_g + $ev->points;
+						}
+					}
+				}
+			}array_push($points_g, $points_user_guild_g);	
+		}
 		
+		//General points
+		
+		//TF points
 		$this->set('results', $results);
 		$this->set('points', $points);
+		$this->set('results_g', $results_g);
+		$this->set('points_g', $points_g);
     }
     
     public function all() {

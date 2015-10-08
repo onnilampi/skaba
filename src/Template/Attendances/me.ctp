@@ -20,6 +20,7 @@
 							<thead>
 								<tr>
 									<td><?= __('Vahvistamatta') ?></td>
+									<td><?= __('Kilta')?></td>
 									<td><?= __('Raakapisteet') ?></td>
 								</tr>
 							</thead>
@@ -36,6 +37,9 @@
 									?>
 								    <tr>
 									<td><?= $event->title ?></td>
+									<td><?php $guild=$guilds->get($event->guild_id); 
+										echo $guild->title;
+									?></td>
 									<td><?= $event->points ?></td>
 								    </tr>
 								<?php endforeach; ?>	
@@ -44,6 +48,7 @@
 								<tfoot>
 									<tr>
 										<td><b><?= __('Raakapisteitä yhteensä')?></b></td>
+										<td><?= __('')?></td>
 										<td><b><?= $points?></b></td>    
 									</tr>
 								</tfoot>
@@ -56,6 +61,7 @@
 							<thead>
 								<tr>
 									<td><?= __('Vahvistettu') ?></td>
+									<td><?= __('Kilta')?></td>
 									<td><?= __('Raakapisteet') ?></td>
 								</tr>
 							</thead>
@@ -72,6 +78,9 @@
 									?>
 								    <tr>
 									<td><?= $event->title ?></td>
+									<td><?php $guild=$guilds->get($event->guild_id); 
+										echo $guild->title;
+									?></td>
 									<td><?= $event->points ?></td>
 								    </tr>
 								<?php endforeach; ?>	
@@ -80,6 +89,7 @@
 								<tfoot>
 									<tr>
 										<td><b><?= __('Raakapisteitä yhteensä')?></b></td>
+										<td><?= __('')?></td>
 										<td><b><?= $points?></b></td>    
 									</tr>
 								</tfoot>

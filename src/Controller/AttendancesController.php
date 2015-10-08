@@ -187,10 +187,12 @@ class AttendancesController extends AppController
 	$this->paginate = [ 
 		'contain' => ['Events']
 	];
+	$guilds = TableRegistry::get('Guilds');
 	$user_id = $this->Auth->user('id');	
 	$query = $this->Attendances->find('all')
 		->where(['user_id =' => $user_id])
-		->where(['verified IS NOT' => 'NULL']);
+		->where(['verified IS NOT' => 'NULL'])
+		->order(['created' => 'ASC']);
 	$data = $query->toArray();
 	$results = array();
 	$ver = array();
@@ -201,7 +203,8 @@ class AttendancesController extends AppController
         }
 	$query = $this->Attendances->find('all')
 		->where(['user_id =' => $user_id])
-		->where(['id NOT IN' => $ver]);
+		->where(['id NOT IN' => $ver])
+		->order(['created' => 'DESC']);
 	$data = $query->toArray();
 	$results_unverified = array();
         foreach ($data as $event) {
@@ -209,6 +212,7 @@ class AttendancesController extends AppController
         }
 	$this->set('results', $results);
 	$this->set('results_unverified', $results_unverified);
+	$this->set('guilds', $guilds);
 
     }
     
