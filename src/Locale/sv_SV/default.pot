@@ -1,0 +1,626 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-10-07 10:32+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AttendancesController.php:101;124
+msgid "Tapahtumaan osallistuminen tallennettu."
+msgstr ""
+
+#: Controller/AttendancesController.php:104;127;150
+msgid "Tapahtumaan osallistumista ei pystytty tallentamaan. Yritä uudelleen."
+msgstr ""
+
+#: Controller/AttendancesController.php:148
+msgid "Tapahtumaan osallistuminen poistettu."
+msgstr ""
+
+#: Controller/AttendancesController.php:162
+msgid "The attendance has been verified."
+msgstr ""
+
+#: Controller/AttendancesController.php:165
+msgid "The attendance could not be verified. Please, try again."
+msgstr ""
+
+#: Controller/AttendancesController.php:177
+msgid "The attendance has been unverified."
+msgstr ""
+
+#: Controller/AttendancesController.php:180
+msgid "The attendance could not be unverified. Please, try again."
+msgstr ""
+
+#: Controller/EventsController.php:86;112
+#: Controller/Admin/EventsController.php:55;81
+msgid "The event has been saved."
+msgstr ""
+
+#: Controller/EventsController.php:89;115
+#: Controller/Admin/EventsController.php:58;84
+msgid "The event could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/EventsController.php:135
+#: Controller/Admin/EventsController.php:104
+msgid "The event has been deleted."
+msgstr ""
+
+#: Controller/EventsController.php:137
+#: Controller/Admin/EventsController.php:106
+msgid "The event could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/GuildsController.php:62;87
+msgid "The guild has been saved."
+msgstr ""
+
+#: Controller/GuildsController.php:65;90
+msgid "The guild could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/GuildsController.php:109
+msgid "The guild has been deleted."
+msgstr ""
+
+#: Controller/GuildsController.php:111
+msgid "The guild could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:99;125
+msgid "The user has been saved."
+msgstr ""
+
+#: Controller/UsersController.php:102;128
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:148
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:150
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:160
+msgid "Sisäänkirjautuminen onnistui"
+msgstr ""
+
+#: Controller/UsersController.php:164
+msgid "Väärä käyttäjätunnus tai salasana, yritä uudelleen"
+msgstr ""
+
+#: Controller/UsersController.php:187
+msgid "Salasana vaihdettu"
+msgstr ""
+
+#: Controller/UsersController.php:190
+msgid "Salasanan vaihto ei onnistunut. Yritä uudestaan"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:2;21
+#: Template/Articles/add.ctp:2
+#: Template/Articles/edit.ctp:2
+#: Template/Articles/index.ctp:2;15
+#: Template/Articles/view.ctp:2
+#: Template/Attendances/add.ctp:2
+#: Template/Attendances/edit.ctp:2
+#: Template/Attendances/index.ctp:2;20
+#: Template/Attendances/view.ctp:2
+#: Template/Events/add.ctp:2
+#: Template/Events/edit.ctp:2
+#: Template/Events/index.ctp:2;21
+#: Template/Events/view.ctp:2;54
+#: Template/Guilds/add.ctp:2
+#: Template/Guilds/edit.ctp:2
+#: Template/Guilds/index.ctp:2;18
+#: Template/Guilds/view.ctp:2;43;87
+#: Template/Users/add.ctp:2
+#: Template/Users/edit.ctp:2
+#: Template/Users/index.ctp:2;21
+#: Template/Users/view.ctp:2;52
+msgid "Actions"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:4
+#: Template/Attendances/add.ctp:6
+#: Template/Attendances/edit.ctp:12
+#: Template/Attendances/index.ctp:6
+#: Template/Attendances/view.ctp:9
+#: Template/Events/index.ctp:4
+#: Template/Events/view.ctp:7
+#: Template/Guilds/add.ctp:6
+#: Template/Guilds/edit.ctp:12
+#: Template/Guilds/index.ctp:6
+#: Template/Guilds/view.ctp:9
+msgid "New Event"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:5
+#: Template/Events/add.ctp:5
+#: Template/Events/edit.ctp:11
+#: Template/Events/index.ctp:5
+#: Template/Events/view.ctp:8
+#: Template/Guilds/add.ctp:4
+#: Template/Guilds/edit.ctp:10
+#: Template/Guilds/view.ctp:6
+#: Template/Users/add.ctp:5
+#: Template/Users/edit.ctp:11
+#: Template/Users/index.ctp:5
+#: Template/Users/view.ctp:8
+msgid "List Guilds"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:6
+#: Template/Events/add.ctp:6
+#: Template/Events/edit.ctp:12
+#: Template/Events/index.ctp:6
+#: Template/Events/view.ctp:9
+#: Template/Guilds/index.ctp:4
+#: Template/Guilds/view.ctp:7
+#: Template/Users/add.ctp:6
+#: Template/Users/edit.ctp:12
+#: Template/Users/index.ctp:6
+#: Template/Users/view.ctp:9
+msgid "New Guild"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:7
+#: Template/Attendances/add.ctp:4
+#: Template/Attendances/edit.ctp:10
+#: Template/Attendances/view.ctp:6
+#: Template/Events/add.ctp:7
+#: Template/Events/edit.ctp:13
+#: Template/Events/index.ctp:7
+#: Template/Events/view.ctp:10
+#: Template/Users/add.ctp:7
+#: Template/Users/edit.ctp:13
+#: Template/Users/index.ctp:7
+#: Template/Users/view.ctp:10
+msgid "List Attendances"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:8
+#: Template/Attendances/index.ctp:4
+#: Template/Attendances/view.ctp:7
+#: Template/Events/add.ctp:8
+#: Template/Events/edit.ctp:14
+#: Template/Events/index.ctp:8
+#: Template/Events/view.ctp:11
+#: Template/Users/add.ctp:8
+#: Template/Users/edit.ctp:14
+#: Template/Users/index.ctp:8
+#: Template/Users/view.ctp:11
+msgid "New Attendance"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:36
+#: Template/Articles/index.ctp:26
+#: Template/Attendances/index.ctp:35
+#: Template/Events/view.ctp:65
+#: Template/Guilds/index.ctp:28
+#: Template/Guilds/view.ctp:58;103
+#: Template/Users/view.ctp:63
+msgid "View"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:37
+#: Template/Articles/index.ctp:27
+#: Template/Attendances/index.ctp:36
+#: Template/Events/index.ctp:36
+#: Template/Events/view.ctp:67
+#: Template/Guilds/index.ctp:29
+#: Template/Guilds/view.ctp:60;105
+#: Template/Users/index.ctp:34
+#: Template/Users/view.ctp:65
+msgid "Edit"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:38
+#: Template/Articles/edit.ctp:5
+#: Template/Articles/index.ctp:28
+#: Template/Attendances/edit.ctp:5
+#: Template/Attendances/index.ctp:42
+#: Template/Events/edit.ctp:5
+#: Template/Events/index.ctp:37
+#: Template/Events/view.ctp:69
+#: Template/Guilds/edit.ctp:5
+#: Template/Guilds/index.ctp:30
+#: Template/Guilds/view.ctp:62;107
+#: Template/Users/edit.ctp:5
+#: Template/Users/index.ctp:35
+#: Template/Users/view.ctp:67
+msgid "Delete"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:38
+#: Template/Articles/edit.ctp:7
+#: Template/Articles/index.ctp:28
+#: Template/Articles/view.ctp:5
+#: Template/Attendances/edit.ctp:7
+#: Template/Attendances/index.ctp:42
+#: Template/Attendances/view.ctp:5
+#: Template/Events/index.ctp:37
+#: Template/Events/view.ctp:5;69
+#: Template/Guilds/edit.ctp:7
+#: Template/Guilds/index.ctp:30
+#: Template/Guilds/view.ctp:5;62;107
+#: Template/Users/edit.ctp:7
+#: Template/Users/index.ctp:35
+#: Template/Users/view.ctp:5;67
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:47
+#: Template/Articles/index.ctp:37
+#: Template/Attendances/index.ctp:51
+#: Template/Events/index.ctp:46
+#: Template/Guilds/index.ctp:39
+#: Template/Users/index.ctp:44
+msgid "previous"
+msgstr ""
+
+#: Template/Admin/Events/index.ctp:49
+#: Template/Articles/index.ctp:39
+#: Template/Attendances/index.ctp:53
+#: Template/Events/index.ctp:48
+#: Template/Guilds/index.ctp:41
+#: Template/Users/index.ctp:46
+msgid "next"
+msgstr ""
+
+#: Template/Articles/add.ctp:4
+#: Template/Articles/edit.ctp:10
+#: Template/Articles/view.ctp:6
+msgid "List Articles"
+msgstr ""
+
+#: Template/Articles/add.ctp:10
+msgid "Add Article"
+msgstr ""
+
+#: Template/Articles/add.ctp:16
+#: Template/Articles/edit.ctp:22
+#: Template/Attendances/add.ctp:21
+#: Template/Attendances/edit.ctp:27
+#: Template/Events/add.ctp:22
+#: Template/Events/edit.ctp:28
+#: Template/Guilds/add.ctp:20
+#: Template/Guilds/edit.ctp:26
+#: Template/Users/add.ctp:27
+#: Template/Users/edit.ctp:35
+msgid "Submit"
+msgstr ""
+
+#: Template/Articles/edit.ctp:16
+#: Template/Articles/view.ctp:4
+msgid "Edit Article"
+msgstr ""
+
+#: Template/Articles/index.ctp:4
+#: Template/Articles/view.ctp:7
+msgid "New Article"
+msgstr ""
+
+#: Template/Articles/view.ctp:5
+msgid "Delete Article"
+msgstr ""
+
+#: Template/Articles/view.ctp:14
+#: Template/Events/view.ctp:18
+#: Template/Guilds/view.ctp:18;37
+msgid "Title"
+msgstr ""
+
+#: Template/Articles/view.ctp:18
+#: Template/Attendances/view.ctp:24
+#: Template/Events/view.ctp:24;49
+#: Template/Guilds/view.ctp:24;36;79
+#: Template/Users/view.ctp:30;47
+msgid "Id"
+msgstr ""
+
+#: Template/Articles/view.ctp:22
+#: Template/Attendances/view.ctp:28
+#: Template/Events/view.ctp:30;50
+#: Template/Guilds/view.ctp:39;84
+#: Template/Users/view.ctp:34;48
+msgid "Created"
+msgstr ""
+
+#: Template/Articles/view.ctp:24
+#: Template/Events/view.ctp:32
+#: Template/Guilds/view.ctp:40;85
+#: Template/Users/view.ctp:36
+msgid "Modified"
+msgstr ""
+
+#: Template/Articles/view.ctp:30
+#: Template/Events/view.ctp:38
+#: Template/Guilds/view.ctp:38
+msgid "Body"
+msgstr ""
+
+#: Template/Attendances/add.ctp:5
+#: Template/Attendances/edit.ctp:11
+#: Template/Attendances/index.ctp:5
+#: Template/Attendances/view.ctp:8
+#: Template/Events/add.ctp:4
+#: Template/Events/edit.ctp:10
+#: Template/Events/view.ctp:6
+#: Template/Guilds/add.ctp:5
+#: Template/Guilds/edit.ctp:11
+#: Template/Guilds/index.ctp:5
+#: Template/Guilds/view.ctp:8
+msgid "List Events"
+msgstr ""
+
+#: Template/Attendances/add.ctp:7
+#: Template/Attendances/edit.ctp:13
+#: Template/Attendances/index.ctp:7
+#: Template/Attendances/view.ctp:10
+#: Template/Guilds/add.ctp:7
+#: Template/Guilds/edit.ctp:13
+#: Template/Guilds/index.ctp:7
+#: Template/Guilds/view.ctp:10
+#: Template/Users/add.ctp:4
+#: Template/Users/edit.ctp:10
+#: Template/Users/view.ctp:6
+msgid "List Users"
+msgstr ""
+
+#: Template/Attendances/add.ctp:8
+#: Template/Attendances/edit.ctp:14
+#: Template/Attendances/index.ctp:8
+#: Template/Attendances/view.ctp:11
+#: Template/Guilds/add.ctp:8
+#: Template/Guilds/edit.ctp:14
+#: Template/Guilds/index.ctp:8
+#: Template/Guilds/view.ctp:11
+#: Template/Users/index.ctp:4
+#: Template/Users/view.ctp:7
+msgid "New User"
+msgstr ""
+
+#: Template/Attendances/add.ctp:14
+msgid "Add Attendance"
+msgstr ""
+
+#: Template/Attendances/attend.ctp:28
+#: Template/Attendances/me.ctp:13
+#: Template/Events/attend.ctp:12
+#: Template/Users/me.ctp:13
+msgid "Etsi tapahtumista"
+msgstr ""
+
+#: Template/Attendances/edit.ctp:20
+#: Template/Attendances/view.ctp:4
+msgid "Edit Attendance"
+msgstr ""
+
+#: Template/Attendances/index.ctp:38
+msgid "Verify"
+msgstr ""
+
+#: Template/Attendances/index.ctp:40
+msgid "Unverify"
+msgstr ""
+
+#: Template/Attendances/me.ctp:22
+msgid "Tapahtuma"
+msgstr ""
+
+#: Template/Attendances/me.ctp:23
+#: Template/Guilds/me.ctp:21
+msgid "Raakapisteet"
+msgstr ""
+
+#: Template/Attendances/me.ctp:46
+msgid "Raakapisteitä yhteensä"
+msgstr ""
+
+#: Template/Attendances/view.ctp:5
+msgid "Delete Attendance"
+msgstr ""
+
+#: Template/Attendances/view.ctp:18
+#: Template/Events/view.ctp:52
+#: Template/Users/view.ctp:50
+msgid "Event Title"
+msgstr ""
+
+#: Template/Attendances/view.ctp:20
+#: Template/Events/view.ctp:53
+#: Template/Users/view.ctp:51
+msgid "User RealName"
+msgstr ""
+
+#: Template/Attendances/view.ctp:30
+#: Template/Events/view.ctp:51
+#: Template/Users/view.ctp:49
+msgid "Verified"
+msgstr ""
+
+#: Template/Element/adminbar.ctp:19
+msgid "Uusi käyttäjä"
+msgstr ""
+
+#: Template/Element/adminbar.ctp:20
+msgid "Näytä käyttäjät"
+msgstr ""
+
+#: Template/Element/adminbar.ctp:31
+msgid "Uusi tapahtuma"
+msgstr ""
+
+#: Template/Element/adminbar.ctp:32
+msgid "Näytä tapahtumat"
+msgstr ""
+
+#: Template/Element/adminbar.ctp:36
+msgid "Osallistumiset"
+msgstr ""
+
+#: Template/Events/add.ctp:14
+msgid "Add Event"
+msgstr ""
+
+#: Template/Events/attend.ctp:40
+msgid "Lisää tapahtumiini"
+msgstr ""
+
+#: Template/Events/edit.ctp:7
+msgid "Haluatko varmasti poistaa tapahtuman {0}?"
+msgstr ""
+
+#: Template/Events/edit.ctp:20
+#: Template/Events/view.ctp:4
+msgid "Edit Event"
+msgstr ""
+
+#: Template/Events/view.ctp:5
+msgid "Delete Event"
+msgstr ""
+
+#: Template/Events/view.ctp:20
+#: Template/Users/view.ctp:26
+msgid "Guild"
+msgstr ""
+
+#: Template/Events/view.ctp:26
+#: Template/Guilds/view.ctp:41
+msgid "Points"
+msgstr ""
+
+#: Template/Events/view.ctp:45
+#: Template/Users/view.ctp:43
+msgid "Related Attendances"
+msgstr ""
+
+#: Template/Guilds/add.ctp:14
+msgid "Add Guild"
+msgstr ""
+
+#: Template/Guilds/all.ctp:2
+msgid "Tulossa pian"
+msgstr ""
+
+#: Template/Guilds/edit.ctp:20
+#: Template/Guilds/view.ctp:4
+msgid "Edit Guild"
+msgstr ""
+
+#: Template/Guilds/me.ctp:20
+msgid "ISO"
+msgstr ""
+
+#: Template/Guilds/view.ctp:5
+msgid "Delete Guild"
+msgstr ""
+
+#: Template/Guilds/view.ctp:20
+msgid "Abbr"
+msgstr ""
+
+#: Template/Guilds/view.ctp:31
+msgid "Related Events"
+msgstr ""
+
+#: Template/Guilds/view.ctp:42;86
+msgid "Guild Id"
+msgstr ""
+
+#: Template/Guilds/view.ctp:74
+msgid "Related Users"
+msgstr ""
+
+#: Template/Guilds/view.ctp:80
+#: Template/Users/view.ctp:18
+msgid "RealName"
+msgstr ""
+
+#: Template/Guilds/view.ctp:81
+#: Template/Users/view.ctp:20
+msgid "Username"
+msgstr ""
+
+#: Template/Guilds/view.ctp:82
+#: Template/Users/view.ctp:22
+msgid "Password"
+msgstr ""
+
+#: Template/Guilds/view.ctp:83
+#: Template/Users/view.ctp:24
+msgid "Role"
+msgstr ""
+
+#: Template/Layout/default.ctp:60
+#: Template/Users/login.ctp:6
+msgid "Kirjaudu sisään"
+msgstr ""
+
+#: Template/Layout/default.ctp:69
+msgid "Asetukset"
+msgstr ""
+
+#: Template/Layout/default.ctp:70
+msgid "Kirjaudu ulos"
+msgstr ""
+
+#: Template/Users/add.ctp:14
+msgid "Add User"
+msgstr ""
+
+#: Template/Users/edit.ctp:20
+#: Template/Users/view.ctp:4
+msgid "Edit User"
+msgstr ""
+
+#: Template/Users/login.ctp:9
+msgid "Käyttäjätunnus"
+msgstr ""
+
+#: Template/Users/login.ctp:10
+msgid "Salasana"
+msgstr ""
+
+#: Template/Users/login.ctp:11
+msgid "Kirjaudu"
+msgstr ""
+
+#: Template/Users/settings.ctp:4
+msgid "Vaihda salasana"
+msgstr ""
+
+#: Template/Users/settings.ctp:8
+msgid "Vanha salasana"
+msgstr ""
+
+#: Template/Users/settings.ctp:9
+msgid "Uusi salasana"
+msgstr ""
+
+#: Template/Users/settings.ctp:10
+msgid "Uusi salasana uudestaan"
+msgstr ""
+
+#: Template/Users/settings.ctp:11
+msgid "Muuta salasana"
+msgstr ""
+
+#: Template/Users/view.ctp:5
+msgid "Delete User"
+msgstr ""
+

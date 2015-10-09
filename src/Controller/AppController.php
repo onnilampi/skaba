@@ -16,6 +16,8 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\I18n\I18n;
+
 /**
  * Application Controller
  *
@@ -45,7 +47,21 @@ class AppController extends Controller
                 'action' => 'direct'
             ]
         ]);
-
+        $lang = $this->request->session()->read('Config.language');
+        switch ($lang) {
+            case 'fi':
+                I18n::locale('fi_FI');
+                break;
+            case 'en':
+                I18n::locale('en_US');
+                break;
+            case 'se':
+                I18n::locale('sv_SV');
+                break;
+            default:
+                //$this->Flash->error(__('Kieliasetusta ei pystytty vaihtamaan.'));
+        }
+         // return $this->redirect($this->referer());
     }
     public function beforeFilter(Event $event) {
         

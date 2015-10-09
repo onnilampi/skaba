@@ -16,11 +16,12 @@
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Attendances', 'action' => 'Add']
     ]); ?>
+		<!--<?= $this->element('header2', ['header2_for_layout' => __('Osallistumattomat tapahtumat')]) ?>-->
         <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 text-center'>
             <table class="event-list event-attend" style="border-collapse:collapse;">
                 <thead>
                     <tr>
-                        <td>Tapahtuma</td>
+                        <td><?= __('Tapahtuma') ?></td>
                         <td />
                     </tr>
                 </thead>
@@ -45,7 +46,7 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <br><span>Tapahtumia yhteensä: <?= $event_count ?> </span>
+            <br><span><?= __('Tapahtumia yhteensä') ?>: <?= $event_count ?> </span>
         </div>
     <?= $this->Form->end(); ?>
 </div>					

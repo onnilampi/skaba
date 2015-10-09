@@ -72,6 +72,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     </li>
                     <?php }; ?>   
                 </ul>
+                <!-- Localization selection, not complete yet in the backend.
+                <ul class="nav navbar-nav locale">
+                    <li><a href="/Users/Locale/en"><img src="/img/USA.png"></a></li>
+                    <li><a href="/Users/Locale/fi"><img src="/img/Finland.png"></a></li>
+                    <li><a href="/Users/Locale/se"><img src="/img/Sweden.png"></a></li>                    
+                </ul> -->
             </div>
         </div>
     </nav>

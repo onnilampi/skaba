@@ -8,7 +8,9 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </div>
+
 <div class="form-content col-lg-10 col-md-8 col-sm-7 col-xs-12">
+	<?=$this->element('header2', ['header2_for_layout' => __('Unverified: ').$left])?>
     <table class="event-list">
     <thead>
         <tr>

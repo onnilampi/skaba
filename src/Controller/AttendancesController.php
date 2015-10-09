@@ -40,6 +40,7 @@ class AttendancesController extends AppController
 		$users = TableRegistry::get('Users');
 		$users_query= $users->find('all');
 		$allowed_users=array();
+		$left=0;
 		$data=$users_query->toArray();
 		if($this->Auth->user('TF') == 1){
 			foreach($data as $allowed_user){
@@ -47,24 +48,41 @@ class AttendancesController extends AppController
 					array_push($allowed_users, $allowed_user->id);
 				}
 			}
-			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users]);
+			$query = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->order(['verified' => 'ASC']);
+			$v = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->where(['verified IS NOT' => NULL])
+				->order(['verified' => 'ASC'])->count();
+			$left = ($query->count() - $v);
 		}else if($this->Auth->user('guild_id') == $general){
 			$query = $this->Attendances->find('all');
 		
 		}else{
-			$query = $this->Attendances->find('all')->where(['Users.guild_id =' => $guild_id]);
+			$query = $this->Attendances->find('all')
+				->where(['Users.guild_id =' => $guild_id])
+				->order(['verified' => 'ASC']);
 			foreach($data as $allowed_user){
 				if($allowed_user->guild_id == $guild_id){
 					array_push($allowed_users, $allowed_user->id);
 				}
 			}
-			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users]);
+			$query = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->order(['verified' => 'ASC']);
+			$v = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->where(['verified IS NOT' => NULL])
+				->order(['verified' => 'ASC'])->count();
+			$left = ($query->count() - $v);
 		}
         $this->set('attendances', $this->paginate($query));
         $this->set('_serialize', ['attendances']);
         $this->set('users', $users);
         $this->set('events', $events);
         $this->set('allowed_users', $allowed_users);
+        $this->set('left', $left);
     }
 
     /**
@@ -98,10 +116,10 @@ class AttendancesController extends AppController
                 'event_id' => $this->request->data('event-id')
             ]);
             if ($this->Attendances->save($attendance)) {
-                $this->Flash->success(__('The attendance has been saved.'));
+                $this->Flash->success(__('Tapahtumaan osallistuminen tallennettu.'));
                 return $this->redirect(['controller' => 'events', 'action' => 'attend']);
             } else {
-                $this->Flash->error(__('The attendance could not be saved. Please, try again.'));
+                $this->Flash->error(__('Tapahtumaan osallistumista ei pystytty tallentamaan. Yritä uudelleen.'));
             }
         }
     }
@@ -121,10 +139,10 @@ class AttendancesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $attendance = $this->Attendances->patchEntity($attendance, $this->request->data);
             if ($this->Attendances->save($attendance)) {
-                $this->Flash->success(__('The attendance has been saved.'));
+                $this->Flash->success(__('Tapahtumaan osallistuminen tallennettu.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The attendance could not be saved. Please, try again.'));
+                $this->Flash->error(__('Tapahtumaan osallistumista ei pystytty tallentamaan. Yritä uudelleen.'));
             }
         }
         $events = $this->Attendances->Events->find('list', ['limit' => 200]);
@@ -145,9 +163,9 @@ class AttendancesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $attendance = $this->Attendances->get($id);
         if ($this->Attendances->delete($attendance)) {
-            $this->Flash->success(__('The attendance has been deleted.'));
+            $this->Flash->success(__('Tapahtumaan osallistuminen poistettu.'));
         } else {
-            $this->Flash->error(__('The attendance could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Tapahtumaan osallistumista ei pystytty tallentamaan. Yritä uudelleen.'));
         }
         return $this->redirect(['action' => 'index']);
     }
@@ -187,21 +205,32 @@ class AttendancesController extends AppController
 	$this->paginate = [ 
 		'contain' => ['Events']
 	];
+	$guilds = TableRegistry::get('Guilds');
 	$user_id = $this->Auth->user('id');	
-        $query = $this->Attendances->find('all')
-			->where(['user_id =' => $user_id])
-			->where(['verified IS NOT' => 'NULL']);
-        $data = $query->toArray();
-        $results = array();
+	$query = $this->Attendances->find('all')
+		->where(['user_id =' => $user_id])
+		->where(['verified IS NOT' => 'NULL'])
+		->order(['created' => 'ASC']);
+	$data = $query->toArray();
+	$results = array();
+	$ver = array();
         foreach ($data as $event) {
             array_push($results, $this->Attendances->Events->get($event->event_id));
+            $penis=$this->Attendances->get($event->id);
+            array_push($ver, $penis->id);
         }
-        /*
-	$connection = ConnectionManager::get('default');
-	$result = $connection->query('SELECT * FROM Events WHERE id = (SELECT event_id FROM Attendances WHERE user_id = ' . $user_id . ')');
-        */
+	$query = $this->Attendances->find('all')
+		->where(['user_id =' => $user_id])
+		->where(['id NOT IN' => $ver])
+		->order(['created' => 'DESC']);
+	$data = $query->toArray();
+	$results_unverified = array();
+        foreach ($data as $event) {
+            array_push($results_unverified, $this->Attendances->Events->get($event->event_id));
+        }
 	$this->set('results', $results);
-        
+	$this->set('results_unverified', $results_unverified);
+	$this->set('guilds', $guilds);
 
     }
     
