@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use App\Model\Entity\Attendance;
 use Cake\Event\Event;
+use Cake\ORM\TableRegistry;
 
 
 /**
@@ -144,7 +145,18 @@ class EventsController extends AppController
          $this->paginate = [
             'contain' => ['Guilds']
         ];
+        $att = TableRegistry::get('Attendances');
         $user_id = $this->Auth->user('id');	
+        $query = $att->find('all')
+			->where(['user_id =' => $user_id])
+			->distinct(['event_id']);
+		$att_array = array();
+		$att_array = $query->toArray();
+		$attended_events = array();
+		foreach($att_array as $attended_event){
+			array_push($attended_events, intval($attended_event->event_id));
+		}
+		//var_dump($attended_events);
 		$guild = $this->Auth->user('guild_id');
 		$general = 1;
 		$tf = 14;
@@ -164,7 +176,8 @@ class EventsController extends AppController
         foreach ($data as $event) {
             array_push($results, $this->Events->get($event->id));
         }
-		$this->set('results', $results); 
+		$this->set('results', $results);
+		$this->set('attended_events', $attended_events); 
         /*
         $this->set('events', $this->paginate($this->Events));
         $this->set('_serialize', ['events']); 

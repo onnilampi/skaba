@@ -59,7 +59,7 @@ class AppController extends Controller
                 I18n::locale('sv_SV');
                 break;
             default:
-                $this->Flash->error(__('Kieliasetusta ei pystytty vaihtamaan.'));
+                //$this->Flash->error(__('Kieliasetusta ei pystytty vaihtamaan.'));
         }
          // return $this->redirect($this->referer());
     }

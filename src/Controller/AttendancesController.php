@@ -48,21 +48,33 @@ class AttendancesController extends AppController
 					array_push($allowed_users, $allowed_user->id);
 				}
 			}
-			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->order(['verified' => 'ASC']);
-			$v = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->where(['verified IS NOT' => NULL])->order(['verified' => 'ASC'])->count();
+			$query = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->order(['verified' => 'ASC']);
+			$v = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->where(['verified IS NOT' => NULL])
+				->order(['verified' => 'ASC'])->count();
 			$left = ($query->count() - $v);
 		}else if($this->Auth->user('guild_id') == $general){
 			$query = $this->Attendances->find('all');
 		
 		}else{
-			$query = $this->Attendances->find('all')->where(['Users.guild_id =' => $guild_id])->order(['verified' => 'ASC']);
+			$query = $this->Attendances->find('all')
+				->where(['Users.guild_id =' => $guild_id])
+				->order(['verified' => 'ASC']);
 			foreach($data as $allowed_user){
 				if($allowed_user->guild_id == $guild_id){
 					array_push($allowed_users, $allowed_user->id);
 				}
 			}
-			$query = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->order(['verified' => 'ASC']);
-			$v = $this->Attendances->find('all')->where(['user_id IN' => $allowed_users])->where(['verified IS NOT' => NULL])->order(['verified' => 'ASC'])->count();
+			$query = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->order(['verified' => 'ASC']);
+			$v = $this->Attendances->find('all')
+				->where(['user_id IN' => $allowed_users])
+				->where(['verified IS NOT' => NULL])
+				->order(['verified' => 'ASC'])->count();
 			$left = ($query->count() - $v);
 		}
         $this->set('attendances', $this->paginate($query));

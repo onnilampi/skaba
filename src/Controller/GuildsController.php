@@ -118,6 +118,8 @@ class GuildsController extends AppController
 			'contain' => ['Attendances', 'Users']
 		];
 		$user_id = $this->Auth->user('id');
+		$general = 1;
+		$TF = 14;
 		$guild = $this->Auth->user('guild_id');	
 		$query = $this->Guilds->Users->find('all')
 			->where(['guild_id =' => $guild])
@@ -127,7 +129,7 @@ class GuildsController extends AppController
 		$events = TableRegistry::get('Events');
 		
 		//Al points
-		$events_query= $events->find('all');
+		$events_query= $events->find('all')->where(['guild_id' => $general]);
 		$results = array();
 		$points = array();
 		foreach ($data as $users) {
@@ -175,7 +177,42 @@ class GuildsController extends AppController
 		
 		//General points
 		
-		//TF points
+		/*if($this->Auth->user('TF')){
+			//TF points
+			echo "penis";
+			$query = $this->Guilds->Users->find('all')
+				->where(['guild_id =' => $TF])
+				->order(['realName' => 'DESC']);
+			$data = $query->toArray();
+			$events_query= $events->find('all')->where(['guild_id' => $TF]);
+			$results_tf = array();
+			$points_tf = array();
+			$guils_event_ids = array();
+			//foreach($events_query as $event)
+			foreach ($data as $users) {
+				$points_user_guild_g=0;
+				array_push($results_tf, $this->Guilds->Users->get($users->id));
+				$attendances_query= $attendances->find()->where(['user_id =' => $users->id])->where(['verified IS NOT' => 'NULL']);
+				$size = $attendances->find()->where(['user_id =' => $users->id])->count();
+				if($size != 0){
+					$att_data=$attendances_query->toArray();
+					foreach($att_data as $att){
+						$ev_data = $events_query->toArray();
+						var_dump($ev_data);
+						foreach($ev_data as $ev){
+							echo $ev->title;
+							if($ev->id == $att->event_id){
+								$points_user_guild_g=$points_user_guild_g + $ev->points;
+							}
+						}
+					}
+				}array_push($points_tf, $points_user_guild_g);	
+			}
+			$this->set('taffa', $this->Auth->user('TF'));
+			$this->set('results_tf', $results_tf);
+			$this->set('points_tf', $points_tf);
+			echo $this->Auth->user('TF');
+		}*/
 		$this->set('results', $results);
 		$this->set('points', $points);
 		$this->set('results_g', $results_g);
