@@ -74,7 +74,7 @@
 									foreach ($results_g as $user) :
 									array_push($users_array, $user->realName);
 									array_push($points_array, $points_g[$i]);
-									//array_push($sortable_array, $user_array);
+									//array_push($sortable_array, $user_array
 									$i=$i+1;?>
 								<?php endforeach;
 								array_multisort($points_array, SORT_DESC, SORT_NUMERIC,

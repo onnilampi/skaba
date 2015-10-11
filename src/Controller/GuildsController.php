@@ -156,7 +156,6 @@ class GuildsController extends AppController
 		$results_g = array();
 		$points_g = array();
 		$guils_event_ids = array();
-		foreach($events_query as $event)
 		foreach ($data as $users) {
 			$points_user_guild_g=0;
 			array_push($results_g, $this->Guilds->Users->get($users->id));
